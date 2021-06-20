@@ -369,34 +369,26 @@
 }
 /*Servicios*/  
 .ServiciosTitulo{
-    font-size: 18px;
-    font-family: 'Montserrat-Bold';
-    color: #E7404D;
-    text-transform: uppercase;
+    font-size: 17px;
+    font-family: 'Roboto-Medium';
+    color: #333333;
 }
 .ServiciosTexto{
-    font-size: 14px;
-    font-family: 'Montserrat-Regular';
-    color: #27272B;
+    font-size: 16px;
+    font-family: 'Roboto-Regular';
+    color: #5E5E5E;
 }
-.ServicioTitulo{
+.Servicios-SubTitulo{
     font-size: 15px;
-    font-family: 'Montserrat-Regular';
-    color: #122B3B;
-    text-transform: uppercase;
+    font-family: 'Roboto-Regular';
+    color: #707070;
 }
-.Servicio-TituloSector{
-    font-size: 18px;
-    font-family: 'Montserrat-Bold';
-    color: #E7404D;
-    text-transform: uppercase;
-    margin-left: 25px;
+.Servicios-TituloSeccion{
+    font-size: 31px;
+    font-family: 'Roboto-Light';
+    color: #053E85;
+    text-align: center;
 }
-.Servicio-TextoSector{
-    font-size: 14px;
-    margin-top: 25px;
-    color: #27272B;
-   
-}
+
 
 

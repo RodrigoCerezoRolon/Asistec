@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contacto;
+use App\Models\Logos;
 use App\Models\Mantenimiento;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -121,5 +123,11 @@ class MantenimientoController extends Controller
         $mantenimiento=Mantenimiento::find($id);
         Storage::delete($mantenimiento->imagen);
         $mantenimiento->delete();
+    }
+    public function vistaMantenimiento(){
+        $servicios=Mantenimiento::orderby('orden',"ASC")->get();
+        $contactos=Contacto::all();
+        $iconoSup=Logos::find(1);
+        return view('mantenimiento',compact('contactos','iconoSup','servicios'));
     }
 }
