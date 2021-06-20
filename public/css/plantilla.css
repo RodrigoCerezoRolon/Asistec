@@ -72,10 +72,10 @@
     text-decoration: none;
 }
 .pie_titulo{
-    font-family: 'Montserrat-Bold';
-    color: #E7404D;
+    font-family: 'Roboto-Medium';
+    color: #D4E0EA;
     text-transform: uppercase;
-    font-size: 13px;
+    font-size: 15px;
 }
 .pie_titulo_linea{
     width: 100px;
@@ -85,26 +85,29 @@
     margin-bottom: 20px;
 }
 .pie_secciones{
-    font-family: 'Montserrat-Regular';
+    font-family: 'Roboto-Light';
     font-size: 13px;
-    color:#858592;
+    color:#F9F9F9CC;
     text-transform: uppercase;
     text-decoration: none;
    
 }
 .pie_secciones:hover{
-    color: #7A8891;
+    color: #F9F9F9CC;
     text-decoration: underline;
 }
-.pie_enlacecontacto{
-    font-family: 'Montserrat-Regular';
+.pie-enlacecontacto{
+    font-family: 'Roboto-Light';
     font-size: 13px;
-    color:#858592;
+    color:#FFFFFFCC;
     text-decoration: none;
 }
-.pie_enlacecontacto:hover{
-    color: #7A8891;
+.pie-enlacecontacto:hover{
+    color: #FFFFFF;
     text-decoration: underline;
+}
+.IconoContacto{
+    color: white;
 }
 .enlace_novedad:hover{
     text-decoration: none;

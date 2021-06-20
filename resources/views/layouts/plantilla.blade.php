@@ -21,7 +21,7 @@
   </head>
   <body>
     <header>
-        <div class="d-flex lineasuperior  justify-content-between px-5">
+        <div class="d-none d-sm-flex lineasuperior  justify-content-md-between px-md-5">
             <div class="d-flex align-items-center">
               
                @foreach ($contactos as $contacto)
@@ -41,7 +41,7 @@
                     @endif
                     @if ($contacto->dato=="whatsapp")
                   
-                    <a class="link-lineasuperior " href="https://wa.me/{{$contacto->texto}}">
+                    <a class="link-lineasuperior ms-2 me-md-0" href="https://wa.me/{{$contacto->texto}}">
                         <i class="fab fa-whatsapp" style="color: white"></i>
                         <span > {{$contacto->texto}}</span>
                     </a>
@@ -115,12 +115,12 @@
             ?>
         <div class="container-fluid ps-5" >
             <nav class="navbar navbar-expand-lg navbar-light bg-light" style="padding: unset">
-                <a class="navbar-brand" href="{{route('inicio')}}"><img class="img-fluid" src="{{asset(Storage::url($iconoSup->icono))}}"></a>
+                <a class="navbar-brand" href="{{route('inicio')}}"><img class="img-fluid" src="{{asset(Storage::url($iconoSup->icono))}}" width="358px"></a>
                 <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon "></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                  <ul class="navbar-nav ms-auto pe-md-4 ">
+                  <ul class="navbar-nav ms-auto  " style="white-space: nowrap">
                     <li class="nav-item ">
                         <a class="nav-link {{$empresa_active ?? ''}} " href="{{route('empresa')}}">EMPRESA</a>
                     </li>
@@ -172,128 +172,121 @@
         @endforeach
     </div>
     <footer>
-       <div class="container-fluid py-5 ps-5 " style="background-color: #27272B">
-            
-            <div class="row">
-                <div class="col-md-3">
-                    <a href="{{route('inicio')}}"> <img class="img-fluid" src="{{asset(Storage::url($iconoInf->icono))}}"></a>
-                </div>
-                <div class="col-md-4">
-                    <div class="pie_titulo">SECCIONES</div>
-                    <div class="pie_titulo_linea"></div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class=""><a class="pie_secciones" href="{{route('inicio')}}">Home</a></div>
-                            <div class=""><a class="pie_secciones" href="{{route('empresa')}}">Empresa</a></div>
-                            <div class=""><a class="pie_secciones" href="{{route('productos')}}">Productos</a></div>
-                            <div class=""><a class="pie_secciones" href="{{route('servicios')}}">Servicios</a></div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class=""><a class="pie_secciones" href="{{route('diseno')}}">Diseño a Medida</a></div>
-                            <div class=""><a class="pie_secciones" href="{{route('presupuesto')}}">Solicitar Presupuesto</a></div>
-                            <div class=""><a class="pie_secciones" href="{{route('contacto')}}">Contacto</a></div>
-
-                        </div>
-                    </div>
+        <div class="container-fluid py-5 ps-5 " style="background-color: #053E85">
+             
+             <div class="row">
                 
-                  
-                </div>
-                <div class="col-md-5">
-                    <div class="pie_titulo">HYDRODINA</div>
-                    <div class="pie_titulo_linea"></div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="row">
-                                @foreach ($contactos as $contacto)
-                                    @switch($contacto->dato)
-                                        @case("direccion")
-                                            <div class="col-md-1 col-1">
-                                                <i class="fas fa-map-marker-alt" style="color: #E7404D"></i>
-                                            </div>
-                                            <div class="col-md-10 col-11">
-                                                <a class="pie_enlacecontacto" href="https://goo.gl/maps/AhNNWj4Q9e8QCbmA6">{{$contacto->texto}}</a>
-                                            </div>
-                                        
-                                            @break
-                                        @case("email")
-                                            <div class="col-md-1 col-1 mt-2">
-                                                <i class="fas fa-envelope" style="color: #E7404D"></i>
-                                            </div>
-                                            <div class="col-md-10 col-11 mt-2">
-                                                <a class="pie_enlacecontacto" href="mailto:{{$contacto->texto}}">{{$contacto->texto}}</a>
-                                            </div>
-                                            @break
-                                       
-                                        @default
-                                            
-                                    @endswitch
-                                @endforeach
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="row">
-                                @foreach ($contactos as $contacto)
-                                    @switch($contacto->dato)
-                                        @case("telefono")
-                                        <div class="col-md-1 col-1">
-                                            <i class="fas fa-phone-alt" style="color: #E7404D"></i>
-                                        </div>
-                                        <div class="col-md-10 col-11 ">
-                                            <a class="pie_enlacecontacto" href="tel:{{$contacto->texto}}">{{$contacto->texto}}</a>
-                                        </div>
-                                        @break
-                                        @case('whatsapp')
-                                        <div class="col-md-1 col-1 mt-2">
-                                            <i class="fab fa-whatsapp" style="color: #0DC143"></i>
-                                        </div>
-                                        <div class="col-md-10 col-11 mt-2">
-                                            <a class="pie_enlacecontacto" href="https://wa.me/{{$contacto->texto}}">{{$contacto->texto}}</a>
-                                        </div>
-                                        @break
-                                    @endswitch
-                                @endforeach
-                            </div>
+                 <div class="col-md-4">
+                     <div class="pie_titulo">Secciones</div>
+                     <div class="row">
+                         <div class="col-md-6">
+                             <div class=""><a class="pie_secciones" href="{{route('contacto')}}">Empresa</a></div>
+                             <div class=""><a class="pie_secciones" href="{{route('contacto')}}">Soluciones</a></div>
+                             <div class=""><a class="pie_secciones" href="{{route('contacto')}}">FABRICACIÓN de PRODUCTOS ESPECIALES</a></div>
+                             <div class=""><a class="pie_secciones" href="{{route('contacto')}}">MANTENIMIENTO</a></div>
+
+                         </div>
+                         <div class="col-md-6">
+                             <div class=""><a class="pie_secciones" href="{{route('contacto')}}">Sectores</a></div>
+                             <div class=""><a class="pie_secciones" href="{{route('contacto')}}">Casos de exito</a></div>
+                             <div class=""><a class="pie_secciones" href="{{route('contacto')}}">Clientes</a></div>
+                             <div class=""><a class="pie_secciones" href="{{route('contacto')}}">Contacto</a></div>
+
+ 
+                         </div>
+                     </div>
+                 
+                   
+                 </div>
+                 <div class="col-md-3">
+                     <div class="pie_titulo">Suscribite a nuestro newsLetter</div>
+                     <form id="formSubscribirse">
+                         <div class="input-group flex-nowrap mt-2">
                          
-                        </div>
+                             @csrf
+                             <input id="correo_news" type="text" name="email" class="form-control" style="border-top-left-radius: 14px;border-bottom-left-radius: 14px" placeholder="Ingresa tu email" aria-label="Username" aria-describedby="addon-wrapping">
+                             <span class="input-group-text btn_suscribirse" id="addon-wrapping" style="background-color: #1EBCC1;border-top-right-radius:20px;border-bottom-right-radius: 20px;border:#30A0DB"><i class="fas fa-paper-plane" style="color: #F9F9F9"></i></span>
+                         
+                         </div>
+                     </form>
+                 </div>
+                 <div class="col-md-4 ms-md-5">
+                     <div class="pie_titulo">Contactanos</div>
+                     <div class="row">
+                         @foreach ($contactos as $contacto)
+                         @if ($contacto->dato=="direccion")
+                            <div class="col-md-1 col-1 mt-2">
+                                <i class="fas fa-map-marker-alt IconoContacto" ></i>
+                            </div>
+                            <div class="col-md-11 col-11 mt-2">
+                                <a class="pie-enlacecontacto" href="https://goo.gl/maps/ArHHNC2i8NWoubZy9">{{$contacto->texto}}</a>
+                            </div>
+                        @endif 
+                         @if ($contacto->dato=="correo")
+                             <div class="col-md-1 col-1 mt-2">
+                                 <i class="fas fa-envelope IconoContacto "></i>
+                             </div>
+                             <div class="col-md-11 col-11 mt-2">
+                                 <a class="pie-enlacecontacto" href="mailto:{{$contacto->texto}}">{{$contacto->texto}}</a>
+                             </div>
+                         @endif
+                         @if ($contacto->dato=="telefono")
+                             <div class="col-md-1 col-1 mt-2">
+                                 <i class="fas fa-phone-alt IconoContacto"></i>
+                             </div>
+                             <div class="col-md-11 col-11 mt-2">
+                                 <a class="pie-enlacecontacto" href="tel:{{$contacto->texto}}">{{$contacto->texto}}</a>
+                             </div>
+                         @endif
+                         @if ($contacto->dato=="whatsapp")
+                         <div class="col-md-1 col-1 mt-2">
+                             <i class="fab fa-whatsapp" style="color: white"></i>
+                         </div>
+                         <div class="col-md-11 col-11 mt-2">
+                             <a class="pie-enlacecontacto" href="https://wa.me/:{{$contacto->texto}}">{{$contacto->texto}}</a>
+                         </div>
+                         
+                         @endif
                       
-                    </div>
-                </div>
-            </div>
+                     @endforeach
+                     </div>
+                 </div>
+             </div>
            
-        </div>
-    </footer>
-    <script>
-        $('#addon-wrapping').on('click',()=>{
-            $('#formSubscribirse').submit();
-        });
-        $('#formSubscribirse').on('submit',function(e){
-         e.preventDefault();
-         let mensaje= $('#msgSuscriptor').val();
-         let form= new FormData($('#formSubscribirse')[0]);
-         var loc = window.location;
-       var pathName = loc.pathname.substring(0, loc.pathname.lastIndexOf('/') + 1);
-       let miurl= loc.href.substring(0, loc.href.length - ((loc.pathname + loc.search + loc.hash).length - pathName.length));
-         $.ajax({
-           type: "post",
-           url: '../subscribirse',
-           data: form,
-           processData: false,  // tell jQuery not to process the data
-           contentType: false,   // tell jQuery not to set contentType
-           headers: {
-               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-           },
-           success: function (response) {
-               swal(`${mensaje}`,"","success");
-               $('#correo_news').val("");
-               setTimeout(function(){ location.reload(); }, 1500);
-           },
-           error: function(response){
-               console.log(response);
-               swal("Algo salió mal","","error");
-           }
+         </div>
+     </footer>
+     <script>
+         $('#addon-wrapping').on('click',()=>{
+             $('#formSubscribirse').submit();
          });
-        });
-      </script>
+         $('#formSubscribirse').on('submit',function(e){
+          e.preventDefault();
+          let mensaje= $('#msgSuscriptor').val();
+          let form= new FormData($('#formSubscribirse')[0]);
+          var loc = window.location;
+        var pathName = loc.pathname.substring(0, loc.pathname.lastIndexOf('/') + 1);
+        let miurl= loc.href.substring(0, loc.href.length - ((loc.pathname + loc.search + loc.hash).length - pathName.length));
+          $.ajax({
+            type: "post",
+            url: '../subscribirse',
+            data: form,
+            processData: false,  // tell jQuery not to process the data
+            contentType: false,   // tell jQuery not to set contentType
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function (response) {
+                swal(`${mensaje}`,"","success");
+                $('#correo_news').val("");
+                setTimeout(function(){ location.reload(); }, 1500);
+            },
+            error: function(response){
+                console.log(response);
+                swal("Algo salió mal","","error");
+            }
+          });
+         });
+       </script>
    
     <!-- Optional JavaScript; choose one of the two! -->
 
