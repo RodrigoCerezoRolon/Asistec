@@ -1,0 +1,156 @@
+@font-face{
+	font-family: Montserrat-Black;
+    src: url("../css/Tipografia/Montserrat-Black.ttf")/*IE*/;
+    src: local("Montserrat-Black"), url("../css/Tipografia/Montserrat-Black.ttf") format("truetype");
+}
+@font-face{
+    font-family: Montserrat-BlackItalic;
+    src: url('Tipografia/Montserrat-BlackItalic.ttf');
+    src: local("Montserrat-BlackItalic"), url("../css/Tipografia/Montserrat-BlackItalic.ttf") format("truetype");
+}
+@font-face{
+    font-family: Montserrat-Bold;
+    src: url('Tipografia/Montserrat-Bold.ttf');
+    src: local("Montserrat-Bold"), url("../css/Tipografia/Montserrat-Bold.ttf") format("truetype");
+}
+@font-face{
+    font-family: Montserrat-BoldItalic;
+    src: url('Tipografia/Montserrat-BoldItalic.ttf');
+    src: local("Montserrat-BoldItalic"), url("../css/Tipografia/Montserrat-BoldItalic.ttf") format("truetype");
+}
+@font-face{
+    font-family: Montserrat-ExtraBold;
+    src: url('Tipografia/Montserrat-ExtraBold.ttf');
+    src: local("Montserrat-ExtraBold"), url("../css/Tipografia/Montserrat-ExtraBold.ttf") format("truetype");
+}
+@font-face{
+    font-family: Montserrat-ExtraBoldItalic;
+    src: url('Tipografia/Montserrat-ExtraBoldItalic.ttf');
+    src: local("Montserrat-ExtraBoldItalic"), url("../css/Tipografia/Montserrat-ExtraBoldItalic.ttf") format("truetype");
+}
+@font-face{
+    font-family: Montserrat-ExtraLight;
+    src: url('Tipografia/Montserrat-ExtraLight.ttf');
+    src: local("Montserrat-ExtraLight"), url("../css/Tipografia/Montserrat-ExtraLight.ttf") format("truetype");
+}
+@font-face{
+    font-family: Montserrat-ExtraLightItalic;
+    src: url('Tipografia/Montserrat-ExtraLightItalic.ttf');
+    src: local("Montserrat-ExtraLightItalic"), url("../css/Tipografia/Montserrat-ExtraLightItalic.ttf") format("truetype");
+}
+@font-face{
+    font-family: Montserrat-HairLine;
+    src: url('Tipografia/Montserrat-Hairline.otf');
+    src: local("Montserrat-HairLine"), url("../css/Tipografia/Montserrat-HairLine.otf") format("truetype");
+}
+@font-face{
+    font-family: Montserrat-Light;
+    src: url('Tipografia/Montserrat-Light.ttf');
+    src: local("Montserrat-Light"), url("../css/Tipografia/Montserrat-Light.ttf") format("truetype");
+}
+@font-face{
+     font-family: Montserrat-LightItalic;
+    src: url('Tipografia/Montserrat-LightItalic.ttf');
+    src: local("Montserrat-LightItalic"), url("../css/Tipografia/Montserrat-LightItalic.ttf") format("truetype");
+}
+@font-face{
+    font-family: Montserrat-Medium;
+    src: url('Tipografia/Montserrat-Medium.ttf');
+    src: local("Montserrat-Medium"), url("../css/Tipografia/Montserrat-Medium.ttf") format("truetype");
+}
+@font-face{
+
+    font-family: Montserrat-MediumItalic;
+    src: url('Tipografia/Montserrat-MediumItalic.ttf');
+    src: local("Montserrat-Medium"), url("../css/Tipografia/Montserrat-Medium.ttf") format("truetype");
+}
+@font-face{
+    font-family: Montserrat-Regular;
+    src: url('Tipografia/Montserrat-Regular.otf');
+    src: local("Montserrat-Regular"), url("../css/Tipografia/Montserrat-Regular.otf") format("truetype");
+}
+@font-face{
+     font-family: Montserrat-RegularItalic;
+    src: url('Tipografia/Montserrat-RegularItalic.ttf');
+    src: local("Montserrat-RegularItalic"), url("../css/Tipografia/Montserrat-RegularItalic.ttf") format("truetype");
+}
+@font-face{
+   font-family: Montserrat-SemiBold;
+    src: url('Tipografia/Montserrat-SemiBold.ttf');
+    src: local("Montserrat-SemiBold"), url("../css/Tipografia/Montserrat-SemiBold.ttf") format("truetype");
+}
+@font-face{
+    font-family: Montserrat-SemiBoldItalic;
+    src: url('Tipografia/Montserrat-SemiBoldItalic.ttf');
+    src: local("Montserrat-SemiBoldItalic"), url("../css/Tipografia/Montserrat-SemiBoldItalic.ttf") format("truetype");
+}
+@font-face{
+    font-family: Montserrat-Thin;
+    src: url('Tipografia/Montserrat-Thin.ttf');
+    src: local("Montserrat-Thin"), url("../css/Tipografia/Montserrat-Thin.ttf") format("truetype");
+}
+@font-face{
+    font-family: Montserrat-ThinItalic;
+    src: url('Tipografia/Montserrat-ThinItalic.ttf');
+    src: local("Montserrat-ThinItalic"), url("../css/Tipografia/Montserrat-ThinItalic.ttf") format("truetype");
+}
+@font-face{
+    font-family: Roboto-Black;
+    src: url('Tipografia/Roboto-Black.ttf');
+    src: local("Roboto-Black"), url("../css/Tipografia/Roboto-Black.ttf") format("truetype");
+}
+@font-face{
+    font-family: Roboto-BlackItalic;
+    src: url('Tipografia/Roboto-BlackItalic.ttf');
+    src: local("Roboto-BlackItalic"), url("../css/Tipografia/Roboto-BlackItalic.ttf") format("truetype");
+}
+@font-face{
+    font-family: Roboto-Bold;
+    src: url('Tipografia/Roboto-Bold.ttf');
+    src: local("Roboto-Bold"), url("../css/Tipografia/Roboto-Bold.ttf") format("truetype");
+}
+@font-face{
+    font-family: Roboto-BoldItalic;
+    src: url('Tipografia/Roboto-BoldItalic.ttf');
+    src: local("Roboto-BoldItalic"), url("../css/Tipografia/Roboto-BoldItalic.ttf") format("truetype");
+}
+@font-face{
+    font-family: Roboto-Italic;
+    src: url('Tipografia/Roboto-Italic.ttf');
+    src: local("Roboto-Italic"), url("../css/Tipografia/Roboto-Italic.ttf") format("truetype");
+}
+@font-face{
+    font-family: Roboto-Light;
+    src: url('Tipografia/Roboto-Light.ttf');
+    src: local("Roboto-Light"), url("../css/Tipografia/Roboto-Light.ttf") format("truetype");
+}
+@font-face{
+    font-family: Roboto-LightItalic;
+    src: url('Tipografia/Roboto-LightItalic.ttf');
+    src: local("Roboto-LightItalic"), url("../css/Tipografia/Roboto-LightItalic.ttf") format("truetype");
+}
+@font-face{
+    font-family: Roboto-Medium;
+    src: url('Tipografia/Roboto-Medium.ttf');
+    src: local("Roboto-Medium"), url("../css/Tipografia/Roboto-Medium.ttf") format("truetype");
+}
+@font-face{
+    font-family: Roboto-MediumItalic;
+    src: url('Tipografia/Roboto-MediumItalic.ttf');
+    src: local("Roboto-MediumItalic"), url("../css/Tipografia/Roboto-MediumItalic.ttf") format("truetype");
+}
+@font-face{
+    font-family: Roboto-Regular;
+    src: url('Tipografia/Roboto-Regular.ttf');
+    src: local("Roboto-Regular"), url("../css/Tipografia/Roboto-Regular.ttf") format("truetype");
+}
+@font-face{
+    font-family: Roboto-Thin;
+    src: url('Tipografia/Roboto-Thin.ttf');
+    src: local("Roboto-Thin"), url("../css/Tipografia/Roboto-Thin.ttf") format("truetype");
+}
+@font-face{
+    font-family: Roboto-ThinItalic;
+    src: url('Tipografia/Roboto-ThinItalic.ttf');
+    src: local("Roboto-ThinItalic"), url("../css/Tipografia/Roboto-ThinItalic.ttf") format("truetype");
+}
