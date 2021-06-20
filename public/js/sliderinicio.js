@@ -5,8 +5,8 @@ $(document).ready(function () {
         tabsize: 2,
         lang: 'es-ES',
         height: 120,
-        fontNames: ['Montserrat-Bold', 'Montserrat-Light', 'Montserrat-Medium', 'Montserrat-Regular', 'Montserrat-SemiBold'],
-        fontNamesIgnoreCheck:['Montserrat-Bold', 'Montserrat-Light', 'Montserrat-Medium', 'Montserrat-Regular', 'Montserrat-SemiBold'],
+        fontNames: ['Roboto-Bold', 'Roboto-Light', 'Roboto-Medium', 'Roboto-Regular', 'Roboto-SemiBold'],
+        fontNamesIgnoreCheck:['Roboto-Bold', 'Roboto-Light', 'Roboto-Medium', 'Roboto-Regular', 'Roboto-SemiBold'],
         toolbar: [
           ['style', ['style']],
           ['font', ['bold', 'underline', 'clear']],
@@ -21,8 +21,8 @@ $(document).ready(function () {
         tabsize: 2,
         lang: 'es-ES',
         height: 120,
-        fontNames: ['Montserrat-Bold', 'Montserrat-Light', 'Montserrat-Medium', 'Montserrat-Regular', 'Montserrat-SemiBold'],
-        fontNamesIgnoreCheck:['Montserrat-Bold', 'Montserrat-Light', 'Montserrat-Medium', 'Montserrat-Regular', 'Montserrat-SemiBold'],
+        fontNames: ['Roboto-Bold', 'Roboto-Light', 'Roboto-Medium', 'Roboto-Regular', 'Roboto-SemiBold'],
+        fontNamesIgnoreCheck:['Roboto-Bold', 'Roboto-Light', 'Roboto-Medium', 'Roboto-Regular', 'Roboto-SemiBold'],
         toolbar: [
           ['style', ['style']],
           ['font', ['bold', 'underline', 'clear']],

@@ -134,15 +134,15 @@
     opacity: 0.5;
 }
 /*Inicio*/
-.imgPrincipal_titulo{
-    font-family: 'Montserrat-SemiBold';
- 
-    color: #EEEEEE;
+.SelectorCat{
+    border: 1px solid #1EBCC1;
+    background-color: transparent;
+    color: #989898;
 }
-.linea_roja{
-    width: 30px;
+.lineaCeleste{
+    width: 45px;
     height: 3px;
-    background-color: #A02316;
+    background-color: #1EBCC1;
 }
 .Inicio-titulo{
     font-family: 'Montserrat-Bold';

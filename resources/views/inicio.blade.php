@@ -5,10 +5,10 @@
         border-radius: 50%;
         width: 12px;
         height: 12px;
-        background-color: #E7404D !important;
+        background-color: #FDFDFD !important;
     }
     .carousel-indicators > li.active {
-        background-color: #A80F1B;
+        background-color: #1EBCC1 !important;
         width: 12px;
         height: 12px;
     }
@@ -37,10 +37,7 @@
                         height:365px;
                         ">
                         <div class="col-md-6 ">
-                            <div class="" style="margin-left: 40px;margin-top: 30px">{!!$slider->texto!!}</div>
-                            <a class="btn btn-danger rounded-pill" href="{{route('productos')}}" style="margin-left: 40px;font-family:'Montserrat-Regular';color:#FFFFFF;font-size:14px">
-                                Ver Productos
-                            </a>
+                            <div class="" style="margin-left: 40px;margin-top:20%">{!!$slider->texto!!}</div>
                         </div>
                     </div>
                    
@@ -64,7 +61,29 @@
            
         </div>
     </div>
-    <!--Productos-->
+    <!--Selector de Soluciones-->
+    <div class="container-fluid mb-5 py-5 ps-md-5" style="background-color: #AEDADB33">
+        <div class="row">
+            <div class="col-md-12 text-center" style="font-family: 'Roboto-Light';font-size:32px;color:#053E85">
+                Encuentre la solución para todo tipo de proyecto
+                <div class="lineaCeleste mx-auto"></div>
+            </div>
+            <div class="col-md-4">
+                <select class="form-select rounded-pill SelectorCat" aria-label="Default select example">
+                    <option selected disabled>Usted quiere</option>
+                    @if($categorias->isEmpty())
+                    <option value="" selected>No hay Categorias Cargadas, cargue para continuar</option>
+                    @else 
+                    @foreach ($categorias as $categoria)
+                    <option value="{{$categoria->id}}">{{$categoria->nombre}}</option>
+                    @endforeach
+                    @endif
+                </select>
+            </div>
+        </div>
+       
+    </div>
+    {{-- <!--Productos-->
     <div class="container my-3">
         <div class="row">
             <div class="col-md-12 text-center Empresa_titulo my-5">
@@ -201,5 +220,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 @endsection

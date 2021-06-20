@@ -15,6 +15,35 @@
                 @endif
                 <div class="card">
                     <div class="card-header">
+                        Seccion Soluciones
+                    </div>
+                    <div class="card-body">
+                        <form action="{{route('inicio.actualizarSeccionEmpresa',$seccionSolucion->id)}}" enctype="multipart/form-data" method="POST">
+                            @method('PUT')
+                            @csrf
+                            <div class="form-row">
+                                <div class="col-12">
+                                    <label>Titulo</label>
+                                    <input type="text" class="form-control" name="titulo" value="{{$seccionSolucion->titulo}}">
+                                    <label>Texto</label>
+                                    <textarea id="editor" name="texto">{!!$seccionSolucion->texto!!}</textarea>
+                                    <label>Imagen</label>
+                                    <img class="img-fluid" src="{{asset(Storage::url($seccionSolucion->imagen))}}">
+                                    <input type="file" class="form-control-file" name="imagenSolucion">
+                                    <small class="text-muted">Resolucion Recomendada 1366px * 268px</small>
+                                </div>
+                                
+                            </div>    
+                    </div>
+                    <div class="card-footer text-center">
+                        <button type="submit" class="btn btn-outline-info">
+                            Modificar
+                        </button>
+                    </form>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
                         Seccion Empresa
                     </div>
                     <div class="card-body">

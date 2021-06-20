@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categoria;
 use App\Models\Contacto;
 use App\Models\Logos;
 use App\Models\Marcas;
@@ -10,6 +11,8 @@ use App\Models\SeccionInicio;
 use App\Models\SectorServicio;
 use App\Models\Servicio;
 use App\Models\Sliders;
+use App\Models\SubCategoria;
+use App\Models\SubSubCategoria;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -19,31 +22,23 @@ class InicioController extends Controller
       
      
         $seccionEmpresa=SeccionInicio::find(1);
+        $seccionSolucion=SeccionInicio::find(2);
         $marcas=Marcas::orderby('orden',"ASC")->get();
-        return view('admin.inicio.editarInicio',compact('seccionEmpresa','marcas'));
-    }
-    public function actualizarSeccionInicio(Request $request,$id){
-        $seccionInicio=SeccionInicio::find($id);
-        if($archivo=$request->file('iconoInicio')){
-            $nombre="img_calidadInicio".".".$archivo->getClientOriginalExtension();
-            $archivo->move('images/inicio',$nombre);
-            $seccionInicio->imagen=$nombre;
-        }
-        if($archivo=$request->file('iconoInicioDos')){
-            $nombre="img_calidadInicioDos".".".$archivo->getClientOriginalExtension();
-            $archivo->move('images/inicio',$nombre);
-            $seccionInicio->imagen_dos=$nombre;
-        }
-        
-        $seccionInicio->update($request->all());
+        return view('admin.inicio.editarInicio',compact('seccionEmpresa','marcas','seccionSolucion'));
     }
     public function actualizarSeccionEmpresa(Request $request,$id){
         $seccionEmpresa=SeccionInicio::find($id);
-        if($archivo=$request->file('imagenEmpresa')){
-            $nombre="imgempresa_Inicio".".".$archivo->getClientOriginalExtension();
-            $archivo->move('images/inicio',$nombre);
-            $seccionEmpresa->imagen=$nombre;
-        }
+            if($id==1){
+                if($request->file('imagenEmpresa')){
+                    $seccionEmpresa->imagen=$request->file('imagenEmpresa')->store('images/inicio');
+                }
+            }else{
+                if($request->file('imagenSolucion')){
+                    $seccionEmpresa->imagen=$request->file('imagenSolucion')->store('images/inicio');
+                }
+            }
+           
+
         if($seccionEmpresa->update($request->all())){
             return back()->with('success',"Contenido Actualizado");
         }else{
@@ -78,13 +73,17 @@ class InicioController extends Controller
     public function vistaInicio(){
         $contactos=Contacto::all();
         $iconoSup=Logos::find(1);
-        $iconoInf=Logos::find(2);
-        // $sliders= Sliders::where('pagina','inicio')->orderby('orden',"ASC")->get();
+        $sliders= Sliders::where('pagina','inicio')->orderby('orden',"ASC")->get();
+        $categorias=Categoria::orderby('orden',"ASC")->get();
+        $subcategorias=SubCategoria::join('categorias','sub_categorias.category_id','=','categorias.id')
+        ->orderby('categorias.nombre')->select('sub_categorias.*')->get();
+        $subsubcategorias=SubSubCategoria::join('sub_categorias','sub_sub_categorias.subcategory_id','=','sub_categorias.id')
+        ->orderby('sub_categorias.nombre')->select('sub_sub_categorias.*')->get();
         // $productos=Producto::orderby('orden',"ASC")->take(8)->get();
         // $servicios=Servicio::orderby('orden',"ASC")->get();
         // $sectores=SectorServicio::orderby('orden',"ASC")->get();
         // $seccionEmpresa=SeccionInicio::find(1);
-        return view('layouts.plantilla',compact('contactos','iconoSup','iconoInf'));
+        return view('inicio',compact('contactos','iconoSup','sliders','categorias','subcategorias','subsubcategorias'));
         
     }
 }
