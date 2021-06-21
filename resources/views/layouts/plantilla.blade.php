@@ -143,7 +143,7 @@
                         <a class="nav-link {{$sectores_active ?? ''}}" href="{{route('sectores')}}">Sectores</a>
                     </li> 
                     <li class="nav-item ">
-                        <a class="nav-link {{$casos_active ?? ''}}" href="{{route('contacto')}}">Casos de éxito</a>
+                        <a class="nav-link {{$casos_active ?? ''}}" href="{{route('casos')}}">Casos de éxito</a>
                     </li> 
                     <li class="nav-item ">
                         <a class="nav-link {{$clientes_active ?? ''}}" href="{{route('clientes')}}">Clientes</a>
@@ -151,7 +151,7 @@
                     <li class="nav-item ">
                         <a class="nav-link {{$contacto_active ?? ''}}" href="{{route('contacto')}}">Contacto</a>
                     </li> 
-                    <a class="nav-item nav-link" href="{{route('contacto')}}"><i class="fas fa-search"></i> </a>
+                    {{-- <a class="nav-item nav-link" href="{{route('contacto')}}"><i class="fas fa-search"></i> </a> --}}
                   </ul>
                  
                 </div>
@@ -194,7 +194,7 @@
                          </div>
                          <div class="col-md-6">
                              <div class=""><a class="pie_secciones" href="{{route('sectores')}}">Sectores</a></div>
-                             <div class=""><a class="pie_secciones" href="{{route('contacto')}}">Casos de exito</a></div>
+                             <div class=""><a class="pie_secciones" href="{{route('casos')}}">Casos de exito</a></div>
                              <div class=""><a class="pie_secciones" href="{{route('clientes')}}">Clientes</a></div>
                              <div class=""><a class="pie_secciones" href="{{route('contacto')}}">Contacto</a></div>
 

@@ -29,6 +29,7 @@ Route::get('productos','ProductosController@vistaProductos')->name('productos');
 Route::get('producto/{id}','ProductosController@vistaProducto')->name('producto');
 Route::get('mantenimiento','MantenimientoController@vistaMantenimiento')->name('mantenimiento');
 Route::get('sectores','SectoresController@vistaSectores')->name('sectores');
+Route::get('casos-de-exito','CasosController@vistaCasos')->name('casos');
 Route::get('clientes','ClientesController@vistaClientes')->name('clientes');
 Route::get('presupuesto','ContactoController@vistaPresupuesto')->name('presupuesto');
 Route::get('presupuesto/{id}','ContactoController@vistaPresupuestoProd')->name('presupuesto.prod');

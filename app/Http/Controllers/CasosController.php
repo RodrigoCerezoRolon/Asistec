@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\CasoExito;
+use App\Models\Contacto;
+use App\Models\Logos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -118,5 +120,11 @@ class CasosController extends Controller
     {
         $caso=CasoExito::find($id);
         $caso->delete();
+    }
+    public function vistaCasos(){
+        $contactos=Contacto::all();
+        $iconoSup=Logos::find(1);
+        $casos=CasoExito::orderby('orden',"ASC")->get();
+        return view('casos',compact('contactos','iconoSup','casos'));
     }
 }
