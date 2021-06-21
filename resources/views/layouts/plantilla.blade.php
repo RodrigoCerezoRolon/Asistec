@@ -114,7 +114,7 @@
     }
             ?>
         <div class="container-fluid ps-5" >
-            <nav class="navbar navbar-expand-lg navbar-light bg-light" style="padding: unset">
+            <nav class="navbar navbar-expand-lg navbar-light " style="padding: unset">
                 <a class="navbar-brand" href="{{route('inicio')}}"><img class="img-fluid" src="{{asset(Storage::url($iconoSup->icono))}}" width="358px"></a>
                 <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon "></span>
@@ -128,10 +128,10 @@
                         <a class="nav-link {{$productos_active ?? ''}}" href="{{route('productos')}}">SOLUCIONES</a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link {{$servicios_active ?? ''}}" href="{{route('servicios')}}">FABRICACIÓN de PRODUCTOS ESPECIALES</a>
+                        <a class="nav-link {{$servicios_active ?? ''}}" href="{{route('contacto')}}">FABRICACIÓN de PRODUCTOS ESPECIALES</a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link {{$diseño_active ?? ''}}" href="{{route('diseno')}}">Mantenimiento</a>
+                        <a class="nav-link {{$diseño_active ?? ''}}" href="{{route('mantenimiento')}}">Mantenimiento</a>
                     </li>
                     <li class="nav-item ">
                         <a class="nav-link {{$presupuesto_active ?? ''}}" href="{{route('presupuesto')}}">Sectores</a>
@@ -140,7 +140,7 @@
                         <a class="nav-link {{$contacto_active ?? ''}}" href="{{route('contacto')}}">Casos de éxito</a>
                     </li> 
                     <li class="nav-item ">
-                        <a class="nav-link {{$contacto_active ?? ''}}" href="{{route('contacto')}}">Clientes</a>
+                        <a class="nav-link {{$contacto_active ?? ''}}" href="{{route('clientes')}}">Clientes</a>
                     </li> 
                     <li class="nav-item ">
                         <a class="nav-link {{$contacto_active ?? ''}}" href="{{route('contacto')}}">Contacto</a>
@@ -180,16 +180,16 @@
                      <div class="pie_titulo">Secciones</div>
                      <div class="row">
                          <div class="col-md-6">
-                             <div class=""><a class="pie_secciones" href="{{route('contacto')}}">Empresa</a></div>
+                             <div class=""><a class="pie_secciones" href="{{route('empresa')}}">Empresa</a></div>
                              <div class=""><a class="pie_secciones" href="{{route('contacto')}}">Soluciones</a></div>
                              <div class=""><a class="pie_secciones" href="{{route('contacto')}}">FABRICACIÓN de PRODUCTOS ESPECIALES</a></div>
-                             <div class=""><a class="pie_secciones" href="{{route('contacto')}}">MANTENIMIENTO</a></div>
+                             <div class=""><a class="pie_secciones" href="{{route('mantenimiento')}}">MANTENIMIENTO</a></div>
 
                          </div>
                          <div class="col-md-6">
                              <div class=""><a class="pie_secciones" href="{{route('contacto')}}">Sectores</a></div>
                              <div class=""><a class="pie_secciones" href="{{route('contacto')}}">Casos de exito</a></div>
-                             <div class=""><a class="pie_secciones" href="{{route('contacto')}}">Clientes</a></div>
+                             <div class=""><a class="pie_secciones" href="{{route('clientes')}}">Clientes</a></div>
                              <div class=""><a class="pie_secciones" href="{{route('contacto')}}">Contacto</a></div>
 
  

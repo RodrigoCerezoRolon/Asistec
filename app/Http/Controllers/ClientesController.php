@@ -40,12 +40,10 @@ class ClientesController extends Controller
         $cliente->delete();
     }
     public function vistaClientes(){
-        $categorias=Categoria::orderby('orden',"ASC")->get();
         $contactos=Contacto::all();
         $iconoSup=Logos::find(1);
-        $iconoInf=Logos::find(2);
         $clientes=Cliente::orderby('orden',"ASC")->get();
-        $metadato=Metadato::where('seccion',"clientes")->first()->get();
-        return view('clientes',compact('contactos','iconoSup','iconoInf','clientes','metadato','categorias'));
+       // $metadato=Metadato::where('seccion',"clientes")->first()->get();
+        return view('clientes',compact('contactos','iconoSup','clientes'));
     }
 }

@@ -17,14 +17,17 @@ Route::get('/','InicioController@vistaInicio')->name('inicio');
 Route::get('empresa','EmpresaController@vistaEmpresa')->name('empresa');
 Route::get('productos','ProductosController@vistaProductos')->name('productos');
 Route::get('producto/{id}','ProductosController@vistaProducto')->name('producto');
-Route::get('servicios','ServiciosController@vistaServicios')->name('servicios');
+Route::get('mantenimiento','MantenimientoController@vistaMantenimiento')->name('mantenimiento');
 Route::get('diseño','DisenoController@vistaDiseño')->name('diseno');
+Route::get('clientes','ClientesController@vistaClientes')->name('clientes');
 Route::get('presupuesto','ContactoController@vistaPresupuesto')->name('presupuesto');
 Route::get('presupuesto/{id}','ContactoController@vistaPresupuestoProd')->name('presupuesto.prod');
 Route::post('presupuestoProd','ContactoController@presupuestoProd');
 Route::post('presupuesto','ContactoController@presupuesto');
 Route::get('fabricacion_de_productos_especiales','FabricacionController@vistaFabricacion')->name('fabricacion');
 Route::get('contacto','ContactoController@vistaContacto')->name('contacto');
+Route::post('consulta','ContactoController@enviarConsulta')->name('consulta');
+
 Route::get('calculadora','ProductosController@vistaCalculadora')->name('calculadora');
 Route::get('adm',function(){
     return redirect('login');

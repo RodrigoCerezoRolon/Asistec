@@ -69,15 +69,20 @@
                 <div class="lineaCeleste mx-auto"></div>
             </div>
             <div class="col-md-4">
-                <select class="form-select rounded-pill SelectorCat" aria-label="Default select example">
+                <select class="form-select rounded-pill SelectorCat" id="SelectorCat" aria-label="Default select example">
                     <option selected disabled>Usted quiere</option>
                     @if($categorias->isEmpty())
                     <option value="" selected>No hay Categorias Cargadas, cargue para continuar</option>
                     @else 
                     @foreach ($categorias as $categoria)
-                    <option value="{{$categoria->id}}">{{$categoria->nombre}}</option>
+                    <option value="{{$categoria}}">{{$categoria->nombre}}</option>
                     @endforeach
                     @endif
+                </select>
+            </div>
+            <div class="col-md-4">
+                <select class="form-select rounded-pill SelectorCat" id="selectSubCats" aria-label="Default select example">
+
                 </select>
             </div>
         </div>
@@ -221,4 +226,5 @@
             </div>
         </div>
     </div> --}}
+    <script src="{{asset('js/filtrado.js')}}"></script>
 @endsection
