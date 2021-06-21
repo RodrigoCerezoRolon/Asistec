@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contacto;
+use App\Models\Logos;
 use App\Models\Sector;
 use App\Models\Solucion;
 use Illuminate\Http\Request;
@@ -35,11 +37,18 @@ class SectoresController extends Controller
             Storage::delete($sector->imagen);
             $sector->imagen=$request->file('imgSectore')->store('images/sectores');
         }
-        $sector->update();
+        $sector->update($request->all());
     }
     public function destroy($id){
         $sector=Sector::find($id);
         Storage::delete($sector->imagen);
         $sector->delete();
+    }
+    public function vistaSectores(){
+        $contactos=Contacto::all();
+        $iconoSup=Logos::find(1);
+        $sectoresEmpresa=Sector::orderby('orden',"ASC")->where('tipo',1)->get();
+        $sectores=Sector::orderby('orden',"ASC")->where('tipo',2)->get();
+        return view('sectores',compact('contactos','iconoSup','sectores','sectoresEmpresa'));
     }
 }

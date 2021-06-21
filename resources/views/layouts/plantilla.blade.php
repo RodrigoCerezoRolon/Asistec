@@ -101,8 +101,8 @@
         case 'mantenimiento':
             $mantenimiento_active='active';
             break;
-        case 'videos':
-            $videos_active = 'active';
+        case 'sectores':
+            $sectores_active = 'active';
             break;
         case 'postVenta':
             $postventa_active = 'active';
@@ -140,7 +140,7 @@
                         <a class="nav-link {{$mantenimiento_active ?? ''}}" href="{{route('mantenimiento')}}">Mantenimiento</a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link {{$sectores_active ?? ''}}" href="{{route('contacto')}}">Sectores</a>
+                        <a class="nav-link {{$sectores_active ?? ''}}" href="{{route('sectores')}}">Sectores</a>
                     </li> 
                     <li class="nav-item ">
                         <a class="nav-link {{$casos_active ?? ''}}" href="{{route('contacto')}}">Casos de éxito</a>
@@ -193,7 +193,7 @@
 
                          </div>
                          <div class="col-md-6">
-                             <div class=""><a class="pie_secciones" href="{{route('contacto')}}">Sectores</a></div>
+                             <div class=""><a class="pie_secciones" href="{{route('sectores')}}">Sectores</a></div>
                              <div class=""><a class="pie_secciones" href="{{route('contacto')}}">Casos de exito</a></div>
                              <div class=""><a class="pie_secciones" href="{{route('clientes')}}">Clientes</a></div>
                              <div class=""><a class="pie_secciones" href="{{route('contacto')}}">Contacto</a></div>

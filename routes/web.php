@@ -24,10 +24,11 @@ Route::get('BuscarSolucionSub-SubCategoria/{id}','SolucionesController@buscarSol
 
 Route::get('empresa','EmpresaController@vistaEmpresa')->name('empresa');
 Route::get('soluciones','SolucionesController@vistaSoluciones')->name('soluciones');
+Route::get('solucion/{id}','SolucionesController@show')->name('solucion');
 Route::get('productos','ProductosController@vistaProductos')->name('productos');
 Route::get('producto/{id}','ProductosController@vistaProducto')->name('producto');
 Route::get('mantenimiento','MantenimientoController@vistaMantenimiento')->name('mantenimiento');
-Route::get('diseño','DisenoController@vistaDiseño')->name('diseno');
+Route::get('sectores','SectoresController@vistaSectores')->name('sectores');
 Route::get('clientes','ClientesController@vistaClientes')->name('clientes');
 Route::get('presupuesto','ContactoController@vistaPresupuesto')->name('presupuesto');
 Route::get('presupuesto/{id}','ContactoController@vistaPresupuestoProd')->name('presupuesto.prod');

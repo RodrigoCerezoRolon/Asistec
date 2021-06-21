@@ -71,7 +71,11 @@ class SolucionesController extends Controller
      */
     public function show($id)
     {
-        //
+        $contactos=Contacto::all();
+        $iconoSup=Logos::find(1);
+        $categorias=Categoria::orderby('orden',"ASC")->get();
+        $solucion=Solucion::find($id);
+        return view('solucion',compact('contactos','iconoSup','categorias','solucion'));
     }
 
     /**
