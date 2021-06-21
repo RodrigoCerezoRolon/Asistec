@@ -30,18 +30,28 @@
         color:#696A6A;
         font-size:15px;        
     }
+    .Servicios_LineaGris{
+        background-color: #F2F2F26E;
+        font-family: 'Roboto-Light';
+        font-size: 14px;
+        color: #707070;
+        height: 40px;
+    }
 </style>
-
+<div class="d-flex Servicios_LineaGris align-items-center ps-5">
+    <i class="fas fa-home"></i> |
+    Fabricación de productos especiales
+</div>
 <div class="container-fluid mb-5 py-5 ps-md-5" style="">
     <div class="row">
-        <div class="col-md-12 text-center" style="font-family: 'Roboto-Light';font-size:32px;">
+        <div class="col-md-12 text-center Servicios-TituloSeccion" >
             Fabricación de productos especiales
             <div class="lineaCeleste mx-auto"></div>
         </div>
     </div>
 </div>
 
-    <div class="container-fluid mb-5 py-5 ps-md-5" >
+    <div class="container-fluid mb-5 pb-5 ps-md-5" >
        
       @forelse ($fabricaciones as $item)
       <?php

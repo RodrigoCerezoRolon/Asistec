@@ -32,10 +32,13 @@
             @foreach ($sectoresEmpresa as $sectorEmp)
             <div class="col-md-3  my-4 ">
                 <a class="Sector_link" href="{{route('solucion',$sectorEmp->solucion_id)}}">
-                    <div class="p-3" style=" background-color:#AEDADB33;">
+                    <div class="px-2 py-3" style=" background-color:#AEDADB33;height: 227px;
+                    width: 288px;
+                    display: flex;
+                    align-items: center;">
                         <div class="" style="background-image: url({{asset(Storage::url($sectorEmp->imagen))}});
                    
-                            height:120px;
+                            height:90px;
                             width:100%;
                             background-size:contain;
                             background-repeat:no-repeat;
@@ -60,10 +63,13 @@
             @foreach ($sectores as $sector)
             <div class="col-md-3  my-4 ">
                 <a class="Sector_link" href="{{route('solucion',$sector->solucion_id)}}">
-                    <div class="p-3" style=" background-color:#AEDADB33;">
+                    <div class="px-2 py-3" style=" background-color:#AEDADB33;height: 227px;
+                    width: 288px;
+                    display: flex;
+                    align-items: center;">
                         <div class="" style="background-image: url({{asset(Storage::url($sector->imagen))}});
                    
-                            height:120px;
+                            height:90px;
                             width:100%;
                             background-size:contain;
                             background-repeat:no-repeat;

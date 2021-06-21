@@ -104,8 +104,8 @@
         case 'sectores':
             $sectores_active = 'active';
             break;
-        case 'postVenta':
-            $postventa_active = 'active';
+        case 'casos':
+            $casos_active = 'active';
             break;
         case 'presupuesto':
             $presupuesto_active = 'active';
@@ -282,7 +282,7 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             success: function (response) {
-                swal(`${mensaje}`,"","success");
+                swal("Se ha suscripto correctamente","","success");
                 $('#correo_news').val("");
                 setTimeout(function(){ location.reload(); }, 1500);
             },

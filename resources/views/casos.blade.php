@@ -45,7 +45,7 @@
                 <div class="Caso_texto">
                     {!!$caso->texto!!}
                 </div>
-                <a href="{{asset(Storage::url($caso->archivo))}}" download="" class="btn rounded-pill btn-outline" style="color:#1EBCC1;border:1px solid #1EBCC1">
+                <a href="{{asset(Storage::url($caso->archivo))}}" download="" class="btn rounded-pill btn-outline" style="color:#1EBCC1;border:1px solid #1EBCC1;font-family:'Roboto-Bold';font-size:13px;text-transform:uppercase">
                     Descargar Caso
                 </a>
             </div>  

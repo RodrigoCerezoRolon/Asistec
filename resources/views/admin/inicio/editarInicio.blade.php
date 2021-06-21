@@ -57,7 +57,7 @@
                                     <label>Texto</label>
                                     <textarea id="editor" name="texto">{!!$seccionEmpresa->texto!!}</textarea>
                                     <label>Imagen</label>
-                                    <img class="img-fluid" src="{{asset('images/inicio/'.$seccionEmpresa->imagen)}}">
+                                    <img class="img-fluid" src="{{asset(Storage::url($seccionEmpresa->imagen))}}">
                                     <input type="file" class="form-control-file" name="imagenEmpresa">
                                     <small class="text-muted">Resolucion Recomendada 1366px * 268px</small>
                                 </div>

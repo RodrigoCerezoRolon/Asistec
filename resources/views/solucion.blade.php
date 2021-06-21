@@ -14,6 +14,13 @@
             color: #707070;
             height: 40px;
         }
+        .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+        border-bottom: 3px solid #1EBCC1 !important;
+        font-family: 'Roboto-Bold';
+        font-size: 14px;
+        color: #053E85;
+        text-transform: uppercase;
+    }
     </style>
     <div class="d-flex Servicios_LineaGris align-items-center ps-5">
         <i class="fas fa-home"></i> |
@@ -94,7 +101,7 @@
                                     {!!$producto->texto!!}
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="fotorama">
+                                    <div class="fotorama" data-nav="thumbs">
                                         @if ($producto->img_uno)
                                             <img src="{{Storage::url($producto->img_uno)}}">
                                         @endif
@@ -132,7 +139,7 @@
                                 {!!$producto->texto!!}
                             </div>
                             <div class="col-md-6">
-                                <div class="fotorama">
+                                <div class="fotorama" data-nav="thumbs">
                                     @if ($producto->img_uno)
                                         <img src="{{Storage::url($producto->img_uno)}}">
                                     @endif

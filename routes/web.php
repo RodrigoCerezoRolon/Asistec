@@ -21,6 +21,8 @@ Route::get('filtrarPorSubCategoria/{id}','SubCategoriasController@filtrarSelecto
 Route::get('BuscarSolucionCategoria/{id}','SolucionesController@buscarSolucionPorCategoria')->name('solucionPorCat');
 Route::get('BuscarSolucionSubCategoria/{id}','SolucionesController@buscarSolucionPorSubCategoria')->name('solucionPorSub');
 Route::get('BuscarSolucionSub-SubCategoria/{id}','SolucionesController@buscarSolucionPorSubSubCategoria')->name('solucionPorSubSub');
+//Suscripcion
+Route::post('subscribirse','SubcriptoresController@subscribirse');
 
 Route::get('empresa','EmpresaController@vistaEmpresa')->name('empresa');
 Route::get('soluciones','SolucionesController@vistaSoluciones')->name('soluciones');

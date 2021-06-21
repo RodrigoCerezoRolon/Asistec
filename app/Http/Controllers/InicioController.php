@@ -77,7 +77,8 @@ class InicioController extends Controller
         $categorias=Categoria::orderby('orden',"ASC")->get();
         $seccionEmpresa=SeccionInicio::find(1);
         $seccionSolucion=SeccionInicio::find(2);
-        return view('inicio',compact('contactos','iconoSup','sliders','categorias','seccionEmpresa','seccionSolucion'));
+        $marcas=Marcas::orderby('orden',"ASC")->get();
+        return view('inicio',compact('contactos','iconoSup','sliders','categorias','seccionEmpresa','seccionSolucion','marcas'));
         
     }
 }

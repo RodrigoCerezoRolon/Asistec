@@ -18,14 +18,17 @@
     <div class="row">
         @foreach ($clientes as $cliente)
             <div class="col-md-2  my-4" >
-              <div class="border" style="background-image: url({{asset(Storage::url($cliente->imagen))}});
-                height:120px;
-                width:100%;
-                background-size:contain;
-                background-repeat:no-repeat;
-                background-position:center;">
-                
-              </div>
+                <div class="border p-3">
+                    <div class="" style="background-image: url({{asset(Storage::url($cliente->imagen))}});
+                        height:120px;
+                        width:100%;
+                        background-size:contain;
+                        background-repeat:no-repeat;
+                        background-position:center;">
+                        
+                    </div>
+                </div>
+              
             </div>
         @endforeach
     </div>
