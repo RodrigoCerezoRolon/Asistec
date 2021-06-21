@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categoria;
+use App\Models\Contacto;
+use App\Models\Logos;
+use App\Models\SeccionInicio;
 use App\Models\Solucion;
 use App\Models\SubCategoria;
 use App\Models\SubSubCategoria;
@@ -100,7 +103,7 @@ class SolucionesController extends Controller
         $solucion=Solucion::find($id);
         if($request->hasFile('img1')){
             Storage::delete($solucion->imagen);
-            $solucion->imagen=$request->file('img1')->store('images/soluciones');
+            $solucion->imagen= $request->file('img1')->store('images/soluciones');
         }
         try {
             $solucion->update($request->all());
@@ -121,5 +124,36 @@ class SolucionesController extends Controller
         $solucion=Solucion::find($id);
         Storage::delete($solucion->imagen);
         $solucion->delete();
+    }
+    public function vistaSoluciones(){
+        $contactos=Contacto::all();
+        $iconoSup=Logos::find(1);
+        $categorias=Categoria::orderby('orden',"ASC")->get();
+        $seccionSolucion=SeccionInicio::find(2);
+        return view('soluciones',compact('contactos','iconoSup','categorias','seccionSolucion'));
+    }
+    public function buscarSolucionPorCategoria($id){
+        $categoria=Categoria::find($id);
+        $solucion=$categoria->solucion;
+        $contactos=Contacto::all();
+        $iconoSup=Logos::find(1);
+        $categorias=Categoria::orderby('orden',"ASC")->get();
+        return view('solucion',compact('contactos','iconoSup','categorias','solucion'));
+    }
+    public function buscarSolucionPorSubCategoria($id){
+        $subcategoria=SubCategoria::find($id);
+        $solucion=$subcategoria->solucion;
+        $contactos=Contacto::all();
+        $iconoSup=Logos::find(1);
+        $categorias=Categoria::orderby('orden',"ASC")->get();
+        return view('solucion',compact('contactos','iconoSup','categorias','solucion'));
+    }
+    public function buscarSolucionPorSubSubCategoria($id){
+        $subsubcategoria=SubSubCategoria::find($id);
+        $solucion=$subsubcategoria->solucion;
+        $contactos=Contacto::all();
+        $iconoSup=Logos::find(1);
+        $categorias=Categoria::orderby('orden',"ASC")->get();
+        return view('solucion',compact('contactos','iconoSup','categorias','solucion'));
     }
 }

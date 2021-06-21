@@ -17,7 +17,13 @@ Route::get('/','InicioController@vistaInicio')->name('inicio');
 //Filtros select
 Route::get('filtrarPorCategoria/{id}','CategoriasController@filtrarSelectorCategoria');
 Route::get('filtrarPorSubCategoria/{id}','SubCategoriasController@filtrarSelectorSubCategoria');
+//Buscar Solucion
+Route::get('BuscarSolucionCategoria/{id}','SolucionesController@buscarSolucionPorCategoria')->name('solucionPorCat');
+Route::get('BuscarSolucionSubCategoria/{id}','SolucionesController@buscarSolucionPorSubCategoria')->name('solucionPorSub');
+Route::get('BuscarSolucionSub-SubCategoria/{id}','SolucionesController@buscarSolucionPorSubSubCategoria')->name('solucionPorSubSub');
+
 Route::get('empresa','EmpresaController@vistaEmpresa')->name('empresa');
+Route::get('soluciones','SolucionesController@vistaSoluciones')->name('soluciones');
 Route::get('productos','ProductosController@vistaProductos')->name('productos');
 Route::get('producto/{id}','ProductosController@vistaProducto')->name('producto');
 Route::get('mantenimiento','MantenimientoController@vistaMantenimiento')->name('mantenimiento');

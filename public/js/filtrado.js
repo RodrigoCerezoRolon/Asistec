@@ -1,13 +1,15 @@
+const form= $('#formFiltrado');
 $('#SelectorCat').on('change',(e)=>{
     var categoria = $('#SelectorCat').val();
     $.ajax({
         type: "GET",
-        url: "filtrarPorCategoria/"+categoria,
+        url: "/filtrarPorCategoria/"+categoria,
         success: function(data) { 
             if(data==true){
                 $('#ColSubCats').addClass('d-none');
-                swal("No hay nada","","warning");
+                $('#ColSub_subCats').addClass('d-none');
                 //Si no hay nada, setear al form para que busque por categoria
+                form.attr('action','BuscarSolucionCategoria/'+categoria);
             }else{
                 //Se setea al buscador para que busque por subcategoria
                 //swal("Hay algo","","success");
@@ -26,7 +28,7 @@ $('#SelectorCat').on('change',(e)=>{
                     }));
                     
                 });
-              
+               // form.attr('action','BuscarSolucionSubCategoria/'+  $('#selectSubCats').val());
     
             }
             // $("#selectModelo").empty();
@@ -59,11 +61,12 @@ $('#selectSubCats').on('change',(e)=>{
     var subcategoria = $('#selectSubCats').val();
     $.ajax({
         type: "GET",
-        url: "filtrarPorSubCategoria/"+subcategoria,
+        url: "/filtrarPorSubCategoria/"+subcategoria,
         success: function(data) { 
             if(data==true){
                 //buscar por subcategoria en el formulario
-                swal("No hay nada","","warning");
+                $('#ColSub_subCats').addClass('d-none');
+                form.attr('action','BuscarSolucionSubCategoria/'+  $('#selectSubCats').val());
             }else{
                 //buscar por sub-subcategoria en el formulario
                 //swal("Hay algo","","success");
@@ -82,7 +85,7 @@ $('#selectSubCats').on('change',(e)=>{
                     }));
                     
                 });
-              
+               
     
             }
             // $("#selectModelo").empty();
@@ -110,4 +113,7 @@ $('#selectSubCats').on('change',(e)=>{
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
+});
+$('#selectSub_SubCats').on('change',(e)=>{
+    form.attr('action','BuscarSolucionSub-SubCategoria/'+  $('#selectSub_SubCats').val());
 });

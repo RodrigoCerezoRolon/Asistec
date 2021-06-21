@@ -15,7 +15,7 @@ class CreateProductosSoluciones extends Migration
     {
         Schema::create('productos_soluciones', function (Blueprint $table) {
             $table->id();
-            $table->integer('prod_id');
+            $table->integer('producto_id');
             $table->integer('solucion_id');
             $table->timestamps();
         });

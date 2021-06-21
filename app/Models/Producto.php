@@ -11,6 +11,6 @@ class Producto extends Model
     protected $guarded=['id'];
 
     public function soluciones(){
-        return $this->belongsToMany(Solucion::class,'productos_soluciones','prod_id');
+        return $this->belongsToMany(Solucion::class,'productos_soluciones');
     }
 }

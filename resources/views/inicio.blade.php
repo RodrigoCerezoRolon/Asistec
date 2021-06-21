@@ -92,7 +92,7 @@
                 </select>
             </div>
             <div class="col-md-3">
-                <button class="btn rounded-pill px-5 d-block Inicio_btnSoluciones ">
+                <button type="submit" class="btn rounded-pill px-5 d-block Inicio_btnSoluciones ">
                     Buscar
                 </button>
             </div>

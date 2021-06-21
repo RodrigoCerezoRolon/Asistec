@@ -35,7 +35,7 @@
                 <div class="col-12">
                     <h6>Imagen</h6>
                     @if ($solucion->imagen)
-                        <img src="{{asset(Storage::url($solucion->imagen))}}">
+                        <img src="{{asset(Storage::url($solucion->imagen))}}" class="img-fluid">
                         <br>
                     @endif
                     <input type="file" name="img1" >

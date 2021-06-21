@@ -12,7 +12,7 @@ class SubSubCategoria extends Model
     public function subcategoria(){
         return $this->belongsTo('App\Models\SubCategoria','subcategory_id');
     }
-    public function soluciones(){
+    public function solucion(){
         return $this->hasOne('App\Models\Solucion','sub_subcategory_id');
     }
 }

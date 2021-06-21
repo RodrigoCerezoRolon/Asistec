@@ -88,9 +88,12 @@
        
             $empresa_active = 'active';
             break;
-        case 'productos':
-        case 'producto':
-            $productos_active='active';
+        case 'soluciones':
+        case 'soluciones.show':
+        case 'solucionPorCat': 
+        case 'solucionPorSub': 
+        case 'solucionPorSubSub':
+            $soluciones_active='active';
             break;
         case 'fabricacion':
             $fabricacion_active= 'active';
@@ -128,7 +131,7 @@
                         <a class="nav-link {{$empresa_active ?? ''}} " href="{{route('empresa')}}">EMPRESA</a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link {{$productos_active ?? ''}}" href="{{route('productos')}}">SOLUCIONES</a>
+                        <a class="nav-link {{$soluciones_active ?? ''}}" href="{{route('soluciones')}}">SOLUCIONES</a>
                     </li>
                     <li class="nav-item ">
                         <a class="nav-link {{$fabricacion_active ?? ''}}" href="{{route('fabricacion')}}">FABRICACIÓN de PRODUCTOS ESPECIALES</a>
@@ -184,8 +187,8 @@
                      <div class="row">
                          <div class="col-md-6">
                              <div class=""><a class="pie_secciones" href="{{route('empresa')}}">Empresa</a></div>
-                             <div class=""><a class="pie_secciones" href="{{route('contacto')}}">Soluciones</a></div>
-                             <div class=""><a class="pie_secciones" href="{{route('contacto')}}">FABRICACIÓN de PRODUCTOS ESPECIALES</a></div>
+                             <div class=""><a class="pie_secciones" href="{{route('soluciones')}}">Soluciones</a></div>
+                             <div class=""><a class="pie_secciones" href="{{route('fabricacion')}}">FABRICACIÓN de PRODUCTOS ESPECIALES</a></div>
                              <div class=""><a class="pie_secciones" href="{{route('mantenimiento')}}">MANTENIMIENTO</a></div>
 
                          </div>
