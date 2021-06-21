@@ -23,6 +23,7 @@ Route::get('presupuesto','ContactoController@vistaPresupuesto')->name('presupues
 Route::get('presupuesto/{id}','ContactoController@vistaPresupuestoProd')->name('presupuesto.prod');
 Route::post('presupuestoProd','ContactoController@presupuestoProd');
 Route::post('presupuesto','ContactoController@presupuesto');
+Route::get('fabricacion_de_productos_especiales','FabricacionController@vistaFabricacion')->name('fabricacion');
 Route::get('contacto','ContactoController@vistaContacto')->name('contacto');
 Route::get('calculadora','ProductosController@vistaCalculadora')->name('calculadora');
 Route::get('adm',function(){
