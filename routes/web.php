@@ -25,6 +25,8 @@ Route::get('presupuesto/{id}','ContactoController@vistaPresupuestoProd')->name('
 Route::post('presupuestoProd','ContactoController@presupuestoProd');
 Route::post('presupuesto','ContactoController@presupuesto');
 Route::get('contacto','ContactoController@vistaContacto')->name('contacto');
+Route::post('consulta','ContactoController@enviarConsulta')->name('consulta');
+
 Route::get('calculadora','ProductosController@vistaCalculadora')->name('calculadora');
 Route::get('adm',function(){
     return redirect('login');
