@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Categoria;
 use Illuminate\Http\Request;
 
+use function PHPUnit\Framework\isEmpty;
+
 class CategoriasController extends Controller
 {
     public function editarCategorias(){
@@ -51,5 +53,14 @@ class CategoriasController extends Controller
         }else{
             return false;
         } 
+    }
+    public function filtrarSelectorCategoria($id){
+        $categoria=Categoria::find($id);
+        $subcategorias=$categoria->subcategorias()->get();
+        if(($subcategorias)->isEmpty()){
+           return true;
+        }else{
+            return $subcategorias;
+        }
     }
 }

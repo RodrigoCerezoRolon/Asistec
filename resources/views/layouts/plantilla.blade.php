@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="es">
   <head>
-      
+      @csrf
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -69,7 +69,7 @@
                @endforeach
             </div>
             <div class="d-none d-md-flex align-items-center" style="background-color: #A80F1B">
-                <a class="link-calculadora" href="{{route('presupuesto')}}">
+                <a class="link-calculadora {{Route::is('presupuesto') ? 'presupuesto_active' : ''}}" href="{{route('presupuesto')}}">
                    SOLICITUD DE PRESUPUESTO
                 </a>
             </div>
@@ -92,11 +92,11 @@
         case 'producto':
             $productos_active='active';
             break;
-        case 'servicios':
-            $servicios_active= 'active';
+        case 'fabricacion':
+            $fabricacion_active= 'active';
             break;
-        case 'diseno':
-            $diseño_active='active';
+        case 'mantenimiento':
+            $mantenimiento_active='active';
             break;
         case 'videos':
             $videos_active = 'active';
@@ -106,6 +106,9 @@
             break;
         case 'presupuesto':
             $presupuesto_active = 'active';
+            break;
+        case 'clientes':
+            $clientes_active = 'active';
             break;
         case 'contacto':
             $contacto_active = 'active';
@@ -128,19 +131,19 @@
                         <a class="nav-link {{$productos_active ?? ''}}" href="{{route('productos')}}">SOLUCIONES</a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link {{$servicios_active ?? ''}}" href="{{route('contacto')}}">FABRICACIÓN de PRODUCTOS ESPECIALES</a>
+                        <a class="nav-link {{$fabricacion_active ?? ''}}" href="{{route('fabricacion')}}">FABRICACIÓN de PRODUCTOS ESPECIALES</a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link {{$diseño_active ?? ''}}" href="{{route('mantenimiento')}}">Mantenimiento</a>
+                        <a class="nav-link {{$mantenimiento_active ?? ''}}" href="{{route('mantenimiento')}}">Mantenimiento</a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link {{$presupuesto_active ?? ''}}" href="{{route('presupuesto')}}">Sectores</a>
+                        <a class="nav-link {{$sectores_active ?? ''}}" href="{{route('contacto')}}">Sectores</a>
                     </li> 
                     <li class="nav-item ">
-                        <a class="nav-link {{$contacto_active ?? ''}}" href="{{route('contacto')}}">Casos de éxito</a>
+                        <a class="nav-link {{$casos_active ?? ''}}" href="{{route('contacto')}}">Casos de éxito</a>
                     </li> 
                     <li class="nav-item ">
-                        <a class="nav-link {{$contacto_active ?? ''}}" href="{{route('clientes')}}">Clientes</a>
+                        <a class="nav-link {{$clientes_active ?? ''}}" href="{{route('clientes')}}">Clientes</a>
                     </li> 
                     <li class="nav-item ">
                         <a class="nav-link {{$contacto_active ?? ''}}" href="{{route('contacto')}}">Contacto</a>

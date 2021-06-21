@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/','InicioController@vistaInicio')->name('inicio');
+//Filtros select
+Route::get('filtrarPorCategoria/{id}','CategoriasController@filtrarSelectorCategoria');
+Route::get('filtrarPorSubCategoria/{id}','SubCategoriasController@filtrarSelectorSubCategoria');
 Route::get('empresa','EmpresaController@vistaEmpresa')->name('empresa');
 Route::get('productos','ProductosController@vistaProductos')->name('productos');
 Route::get('producto/{id}','ProductosController@vistaProducto')->name('producto');
@@ -24,7 +27,7 @@ Route::get('presupuesto','ContactoController@vistaPresupuesto')->name('presupues
 Route::get('presupuesto/{id}','ContactoController@vistaPresupuestoProd')->name('presupuesto.prod');
 Route::post('presupuestoProd','ContactoController@presupuestoProd');
 Route::post('presupuesto','ContactoController@presupuesto');
-Route::get('fabricacion_de_productos_especiales','FabricacionController@vistaFabricacion')->name('fabricacion');
+Route::get('fabricacion-productos-especiales','FabricacionController@vistaFabricacion')->name('fabricacion');
 Route::get('contacto','ContactoController@vistaContacto')->name('contacto');
 Route::post('consulta','ContactoController@enviarConsulta')->name('consulta');
 

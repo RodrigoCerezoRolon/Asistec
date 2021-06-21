@@ -155,7 +155,7 @@
                 <div class="row my-3">
                     <div class="col-12">
 
-                        <button type="submit" class="btn  px-md-5 rounded-pill" style="background-color: #3A7BB8;color:white;text-transform:uppercase;font-family: 'Poppins-Bold';font-size:13px">
+                        <button type="submit" class="btn  px-md-5 rounded-pill" style="background-color: #1EBCC1;color:white;text-transform:uppercase;font-family: 'Roboto-Bold';font-size:13px">
                             <span class="spinner-border spinner-border-sm d-none"> </span> <span class="btn-text"> Enviar </span>
                            
                        </button>

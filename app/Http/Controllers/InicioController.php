@@ -75,15 +75,9 @@ class InicioController extends Controller
         $iconoSup=Logos::find(1);
         $sliders= Sliders::where('pagina','inicio')->orderby('orden',"ASC")->get();
         $categorias=Categoria::orderby('orden',"ASC")->get();
-        // $subcategorias=SubCategoria::join('categorias','sub_categorias.category_id','=','categorias.id')
-        // ->orderby('categorias.nombre')->select('sub_categorias.*')->get();
-        // $subsubcategorias=SubSubCategoria::join('sub_categorias','sub_sub_categorias.subcategory_id','=','sub_categorias.id')
-        // ->orderby('sub_categorias.nombre')->select('sub_sub_categorias.*')->get();
-        // $productos=Producto::orderby('orden',"ASC")->take(8)->get();
-        // $servicios=Servicio::orderby('orden',"ASC")->get();
-        // $sectores=SectorServicio::orderby('orden',"ASC")->get();
-        // $seccionEmpresa=SeccionInicio::find(1);
-        return view('inicio',compact('contactos','iconoSup','sliders','categorias'));
+        $seccionEmpresa=SeccionInicio::find(1);
+        $seccionSolucion=SeccionInicio::find(2);
+        return view('inicio',compact('contactos','iconoSup','sliders','categorias','seccionEmpresa','seccionSolucion'));
         
     }
 }

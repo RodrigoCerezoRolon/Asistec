@@ -1,4 +1,7 @@
 /*Plantilla*/
+.presupuesto_active{
+    background-color: #0C265A !important;
+}
 .lineasuperior{
     height: 35px;
     background-color: #053E85;
@@ -155,6 +158,24 @@
     color: #9E9E9E;
     font-family: 'Raleway', sans-serif;
     font-size: 16px;
+}
+.Inicio_tituloSolucion{
+    color:  #053E85;
+    font-family: 'Roboto-Regular';
+    font-size: 22px;
+   
+}
+.Inicio_textoSolucion{
+    color:  #707070;
+    font-family: 'Roboto-Light';
+    font-size: 15px;
+}
+.Inicio_btnSoluciones{
+    background-color: #1EBCC1;
+    color: white;
+    font-family: 'Roboto-Bold';
+    font-size: 13px;
+    text-transform: uppercase;
 }
 /*Empresa*/
 .texto_empresa{

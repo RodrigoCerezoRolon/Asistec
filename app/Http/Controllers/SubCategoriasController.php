@@ -55,4 +55,13 @@ class SubCategoriasController extends Controller
             return false;
         } 
     }
+    public function filtrarSelectorSubCategoria($id){
+        $subcategoria=SubCategoria::find($id);
+        $subsubcategorias=$subcategoria->subsubcategoria()->get();
+        if(($subsubcategorias)->isEmpty()){
+           return true;
+        }else{
+            return $subsubcategorias;
+        }
+    }
 }

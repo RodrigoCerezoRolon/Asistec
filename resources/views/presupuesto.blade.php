@@ -6,7 +6,7 @@
    
         <div class="col-md-2 col-4">
             <img id="icono_edit"class="d-block mx-auto"src="{{asset('images/edit.svg')}}">
-            <div class="text-center mt-3" style="font-family: 'Montserrat-Bold';color:#E10915">
+            <div class="text-center mt-3" style="font-family: 'Roboto-Regular';color:#707070;font-size:17px">
                 DATOS <br> PERSONALES
                 
             </div>
@@ -23,7 +23,7 @@
         </div>
         <div class="col-md-2 col-4">
             <img id="icono_chat"class="d-block mx-auto "  src="{{asset('images/chat.svg')}}">
-            <div class="text-center mt-3" style="font-family: 'Montserrat-Bold';color:#E10915">
+            <div class="text-center mt-3" style="font-family: 'Roboto-Regular';color:#707070;font-size:17px">
                 CONSULTA
             </div>
             <div class="text-center">
@@ -54,7 +54,7 @@
             <div class="row mt-5">
                 <div class="col-12 d-flex justify-content-end">
                  
-                    <button onclick="PrimerValidacion()" type="button" class="btn rounded-pill  px-5" style="background-color: #A80F1B;color:white;font-size:14px;font-family:'Montserrat-SemiBold';text-transform:uppercase">Siguiente<i class="fas fa-chevron-right ms-2"></i></button>
+                    <button onclick="PrimerValidacion()" type="button" class="btn rounded-pill  px-5" style="background-color: transparent;color:white;font-size:14px;font-family:'Roboto-Bold';text-transform:uppercase;border:1px solid #1EBCC1;color:#1EBCC1">Siguiente</button>
                 </div>
             </div>
         </div>
@@ -71,9 +71,9 @@
             </div>
             <div class="row mt-5">
                 <div class="col-12 d-flex justify-content-between">
-                    <button onclick="anterior()" type="button" class="btn px-5 btn-outline-light text-uppercase rounded-pill" style="color: #E7E9EE;border:1px solid #A80F1B;font-family:'Montserrat-SemiBold'">volver</button>
-                    <button type="submit" class="btn rounded-pill px-md-3" style="background-color: #A80F1B;color:white;font-size:14px;font-family:'Montserrat-SemiBold';text-transform:uppercase">
-                        <span class="spinner-border spinner-border-sm d-none"> </span> <span class="btn-text"> Enviar <i class="fas fa-chevron-right ms-2"></i></span>
+                    <button onclick="anterior()" type="button" class="btn px-5 btn-outline-light text-uppercase rounded-pill" style="color: #1EBCC1;border:1px solid #1EBCC1;font-family:'Roboto-Bold';font-size:13px">volver</button>
+                    <button type="submit" class="btn rounded-pill px-md-5" style="background-color: #1EBCC1;color:white;font-size:13px;font-family:'Roboto-Bold';text-transform:uppercase;border:1px solid #1EBCC1">
+                        <span class="spinner-border spinner-border-sm d-none"> </span> <span class="btn-text"> Enviar </span>
                        
                    </button>
                    

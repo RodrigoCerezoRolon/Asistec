@@ -42,8 +42,35 @@
 </div>
 
     <div class="container-fluid mb-5 py-5 ps-md-5" >
-
+       
       @forelse ($fabricaciones as $item)
+      <?php
+      $cantImgs=1;
+        ?>
+        @if ($item->img_uno)
+            @php
+            $cantImgs++;
+            
+            @endphp
+        @endif
+        @if ($item->img_dos!=null)
+            @php
+            $cantImgs++;
+            
+            @endphp
+        @endif
+        @if ($item->img_tres!=null)
+        @php
+        $cantImgs++;
+        
+        @endphp
+        @endif
+        @if ($item->img_cuatro!=null)
+        @php
+        $cantImgs++;
+        
+        @endphp
+        @endif
       <div class="row pb-5 mt-5 fila_contenido">     
         <div class="col-md-6 px-0"> 
             <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
@@ -51,37 +78,37 @@
 
                                 <div class="carousel-indicators" style="height: 25px;">
                                     <div class="botton_container">
-                                @for ($i = 0; $i < 4; $i++)
+                                        @for ($i = 0; $i >= $cantImgs; $i++)
                                             
                                                 @if ($i==0)
                                                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{$i}}" class="active" aria-current="true" aria-label="Slide 1"></button>
                                                 @else
-                                                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{$i}}" class="" aria-current="true" aria-label="Slide 1"></button>
+                                                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{$i}}" ></button>
                                                 @endif
                                             
-                                @endfor
+                                        @endfor
                                     </div>
                                 </div>
 
                                 <div class="carousel-inner pe-4">        
                                                 @isset($item->img_uno)
                                                 <div class="carousel-item active">
-                                                    <div class="slider_imagen" style="background: url({{ asset('images/'.$item->img_uno.'') }});"></div>                  
+                                                    <div class="slider_imagen" style="background: url({{ asset(Storage::url($item->img_uno)) }});"></div>                  
                                                 </div>    
                                                 @endisset
-                                                @isset($item->img_uno)
+                                                @isset($item->img_dos)
                                                 <div class="carousel-item">
-                                                    <div class="slider_imagen" style="background: url({{ asset('images/'.$item->img_dos.'') }});"></div>                  
+                                                    <div class="slider_imagen" style="background: url({{ asset(Storage::url($item->img_dos)) }});"></div>                  
                                                 </div>    
                                                 @endisset
-                                                @isset($item->img_uno)
+                                                @isset($item->img_tres)
                                                 <div class="carousel-item">
-                                                    <div class="slider_imagen" style="background: url({{ asset('images/'.$item->img_tres.'') }});"></div>                  
+                                                    <div class="slider_imagen" style="background: url({{ asset(Storage::url($item->img_tres)) }});"></div>                  
                                                 </div>    
                                                 @endisset
-                                                @isset($item->img_uno)
+                                                @isset($item->img_cuatro)
                                                 <div class="carousel-item">
-                                                    <div class="slider_imagen" style="background: url({{ asset('images/'.$item->img_cuatro.'') }});"></div>                  
+                                                    <div class="slider_imagen" style="background: url({{ asset(Storage::url($item->img_cuatro)) }});"></div>                  
                                                 </div>    
                                                 @endisset
                                 
@@ -94,7 +121,7 @@
         <div class="col-md-6">
             <div class="texto_seccion pt-2" style="">
                 <h3>{{$item->titulo}}</h3>
-                <p>{{$item->texto}}</p>
+                <p>{!!$item->texto!!}</p>
             </div>
         </div>
     </div>
