@@ -22,9 +22,22 @@ class InicioController extends Controller
       
      
         $seccionEmpresa=SeccionInicio::find(1);
+        $seccionEmpresa->titulo_en=$seccionEmpresa->obtenerTraduccion('seccion_inicios','titulo',$seccionEmpresa->id,'en');
+        $seccionEmpresa->titulo_it=$seccionEmpresa->obtenerTraduccion('seccion_inicios','titulo',$seccionEmpresa->id,'it');
+        $seccionEmpresa->texto_en=$seccionEmpresa->obtenerTraduccion('seccion_inicios','texto',$seccionEmpresa->id,'en');
+        $seccionEmpresa->texto_it=$seccionEmpresa->obtenerTraduccion('seccion_inicios','texto',$seccionEmpresa->id,'it');
         $seccionSolucion=SeccionInicio::find(2);
+        $seccionSolucion->titulo_en=$seccionEmpresa->obtenerTraduccion('seccion_inicios','titulo',$seccionSolucion->id,'en');
+        $seccionSolucion->titulo_it=$seccionEmpresa->obtenerTraduccion('seccion_inicios','titulo',$seccionSolucion->id,'it');
+        $seccionSolucion->texto_en=$seccionEmpresa->obtenerTraduccion('seccion_inicios','texto',$seccionSolucion->id,'en');
+        $seccionSolucion->texto_it=$seccionEmpresa->obtenerTraduccion('seccion_inicios','texto',$seccionSolucion->id,'it');
+        $seccionMantenimiento=SeccionInicio::find(3);
+        $seccionMantenimiento->titulo_en=$seccionEmpresa->obtenerTraduccion('seccion_inicios','titulo',$seccionMantenimiento->id,'en');
+        $seccionMantenimiento->titulo_it=$seccionEmpresa->obtenerTraduccion('seccion_inicios','titulo',$seccionMantenimiento->id,'it');
+        $seccionMantenimiento->texto_en=$seccionEmpresa->obtenerTraduccion('seccion_inicios','texto',$seccionMantenimiento->id,'en');
+        $seccionMantenimiento->texto_it=$seccionEmpresa->obtenerTraduccion('seccion_inicios','texto',$seccionMantenimiento->id,'it');
         $marcas=Marcas::orderby('orden',"ASC")->get();
-        return view('admin.inicio.editarInicio',compact('seccionEmpresa','marcas','seccionSolucion'));
+        return view('admin.inicio.editarInicio',compact('seccionEmpresa','marcas','seccionSolucion','seccionMantenimiento'));
     }
     public function actualizarSeccionEmpresa(Request $request,$id){
         $seccionEmpresa=SeccionInicio::find($id);
@@ -32,13 +45,21 @@ class InicioController extends Controller
                 if($request->file('imagenEmpresa')){
                     $seccionEmpresa->imagen=$request->file('imagenEmpresa')->store('images/inicio');
                 }
-            }else{
+            }
+             if($id==2)   {
                 if($request->file('imagenSolucion')){
                     $seccionEmpresa->imagen=$request->file('imagenSolucion')->store('images/inicio');
                 }
             }
-           
-
+            if($id==3)   {
+                if($request->file('imagenMantenimiento')){
+                    $seccionEmpresa->imagen=$request->file('imagenMantenimiento')->store('images/inicio');
+                }
+            }
+        $seccionEmpresa->actualizarTraduccion('seccion_inicios','titulo',$seccionEmpresa->id,$request->titulo_en,'en');
+        $seccionEmpresa->actualizarTraduccion('seccion_inicios','titulo',$seccionEmpresa->id,$request->titulo_it,'it');
+        $seccionEmpresa->actualizarTraduccion('seccion_inicios','texto',$seccionEmpresa->id,$request->texto_en,'en');
+        $seccionEmpresa->actualizarTraduccion('seccion_inicios','texto',$seccionEmpresa->id,$request->texto_it,'it');
         if($seccionEmpresa->update($request->all())){
             return back()->with('success',"Contenido Actualizado");
         }else{
@@ -78,7 +99,8 @@ class InicioController extends Controller
         $seccionEmpresa=SeccionInicio::find(1);
         $seccionSolucion=SeccionInicio::find(2);
         $marcas=Marcas::orderby('orden',"ASC")->get();
-        return view('inicio',compact('contactos','iconoSup','sliders','categorias','seccionEmpresa','seccionSolucion','marcas'));
+        $seccionMantenimiento=SeccionInicio::find(3);
+        return view('inicio',compact('contactos','iconoSup','sliders','categorias','seccionEmpresa','seccionSolucion','marcas','seccionMantenimiento'));
         
     }
 }

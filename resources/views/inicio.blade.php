@@ -124,8 +124,24 @@
                     </a>
                 </div>
             </div>
-            <div class="col-md-6 pe-0">
+            <div class="col-md-6 px-0">
                 <img src="{{asset(Storage::url($seccionSolucion->imagen))}}" class="img-fluid">
+            </div>
+            <div class="col-md-6 pe-0">
+                <img src="{{asset(Storage::url($seccionMantenimiento->imagen))}}" class="img-fluid">
+            </div>
+            <div class="col-md-6 pt-4 ps-5" style="background-color: #053E85">
+                <div class="Inicio_tituloSolucion" style="color: white">
+                    {{$seccionMantenimiento->titulo}}
+                </div>
+                <div class="Inicio_textoSolucion mt-3" style="color: white">
+                    {!!$seccionMantenimiento->texto!!}
+                </div>
+                <div class="mt-md-5 mb-md-0 mb-3">
+                    <a href="{{route('mantenimiento')}}" class="btn rounded-pill Inicio_btnSoluciones">
+                        Ver Mas
+                    </a>
+                </div>
             </div>
         </div>
     </div>

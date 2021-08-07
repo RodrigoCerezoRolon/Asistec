@@ -59,6 +59,8 @@ function editarSubCategoria(id){
         $('#id_SubCat').val(id);
         $('#orden_subcat').val(response.orden);
         $('#nombre_subcat').val(response.nombre);
+        $('#nombre_subcat_en').val(response.nombre_en);
+        $('#nombre_subcat_it').val(response.nombre_it);
         $('#select_subcategoria').val(response.category_id);
         }
     });

@@ -28,9 +28,13 @@ class SubSubCategoriaController extends Controller
             $subsubcategoria->archivo=$nombre;
         }
         $subsubcategoria->save();
+        $subsubcategoria->crearTraduccion('sub_sub_categorias','nombre',$subsubcategoria->id,$request->nombre_en,'en');
+        $subsubcategoria->crearTraduccion('sub_sub_categorias','nombre',$subsubcategoria->id,$request->nombre_it,'it');
     }
     public function editarSubsubCategoria($id){
         $subsubcategoria=SubSubCategoria::find($id);
+        $subsubcategoria->nombre_en=$subsubcategoria->obtenerTraduccion('sub_sub_categorias','nombre',$subsubcategoria->id,'en');
+        $subsubcategoria->nombre_it=$subsubcategoria->obtenerTraduccion('sub_sub_categorias','nombre',$subsubcategoria->id,'it');
         return $subsubcategoria;
     }
     public function actualizarSubsubCategoria(Request $request,$id){
@@ -45,11 +49,14 @@ class SubSubCategoriaController extends Controller
             $archivo->move('images/productos',$nombre);
             $subsubcategoria->archivo=$nombre;
         }
+        $subsubcategoria->actualizarTraduccion('sub_sub_categorias','nombre',$subsubcategoria->id,$request->nombre_en,'en');
+        $subsubcategoria->actualizarTraduccion('sub_sub_categorias','nombre',$subsubcategoria->id,$request->nombre_it,'it');
         $subsubcategoria->update($request->all());
     }
     public function eliminarSubsubCategoria($id){
         $subsubcategoria=SubSubCategoria::find($id);
-        if($subsubcategoria->soluciones()->get()->isEmpty()==true){
+        $subsubcategoria->eliminarTraducciones('sub_sub_categorias','nombre',$subsubcategoria->id);
+        if($subsubcategoria->solucion()->get()->isEmpty()==true){
             $subsubcategoria->delete();
             return true;
         }else{

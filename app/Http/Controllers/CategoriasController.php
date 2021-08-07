@@ -26,9 +26,14 @@ class CategoriasController extends Controller
             $categoria->archivo=$nombre;
         }
         $categoria->save();
+        $categoria->crearTraduccion('categorias','nombre',$categoria->id,$request->nombre_en,'en');
+        $categoria->crearTraduccion('categorias','nombre',$categoria->id,$request->nombre_it,'it');
+
     }
     public function editarCategoria($id){
         $categoria=Categoria::find($id);
+        $categoria->nombre_en=$categoria->obtenerTraduccion('categorias','nombre',$categoria->id,'en');
+        $categoria->nombre_it=$categoria->obtenerTraduccion('categorias','nombre',$categoria->id,'it');
         return $categoria;
     }
     public function actualizarCategoria(Request $request,$id){
@@ -43,10 +48,14 @@ class CategoriasController extends Controller
             $archivo->move('images/productos',$nombre);
             $categoria->archivo=$nombre;
         }
+        $categoria->actualizarTraduccion('categorias','nombre',$categoria->id,$request->nombre_en,'en');
+        $categoria->actualizarTraduccion('categorias','nombre',$categoria->id,$request->nombre_it,'it');
+
         $categoria->update($request->all());
     }
     public function eliminarCategoria($id){
         $categoria=Categoria::find($id);
+        $categoria-> eliminarTraducciones('categorias','nombre',$categoria->id);
         if($categoria->subcategorias()->get()->isEmpty()==true && $categoria->soluciones()->get()->isEmpty()==true){
             $categoria->delete();
             return true;

@@ -30,11 +30,23 @@
                             {!!$errors->first('orden','<small class="text-danger">:message</small>')!!}
                             <h6>Titulo</h6>
                             <input type="text" class="form-control" name="titulo">
+                            <h6>Titulo Ingles</h6>
+                            <input type="text" class="form-control" name="titulo_en">
+                            <h6>Titulo Italiano</h6>
+                            <input type="text" class="form-control" name="titulo_it">
                             <h6>Subtitulo</h6>
                             <input type="text" class="form-control" name="subtitulo">
+                            <h6>Subtitulo Ingles</h6>
+                            <input type="text" class="form-control" name="subtitulo_en">
+                            <h6>Subtitulo Italiano</h6>
+                            <input type="text" class="form-control" name="subtitulo_it">
                             <h6>Texto</h6>
                             <textarea name="texto"></textarea>
                             {!!$errors->first('titulo','<small class="text-danger">:message</small>')!!}
+                            <h6>Texto Ingles</h6>
+                            <textarea name="texto_en" class="textarea"></textarea>
+                            <h6>Texto Italiano</h6>
+                            <textarea name="texto_it" class="textarea"></textarea>
                             <h6>Imagen</h6>
                             <img src="/storage/images/noImg.jpg" width="60px" id="previewImgServicios">
                             <br>

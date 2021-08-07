@@ -53,6 +53,12 @@ class MantenimientoController extends Controller
             $mantenimiento->imagen=$request->file('imgServicios')->store('images/mantenimiento');
         }
         if($mantenimiento->save()){
+            $mantenimiento->crearTraduccion('mantenimientos','titulo',$mantenimiento->id,$request->titulo_en,'en');
+            $mantenimiento->crearTraduccion('mantenimientos','titulo',$mantenimiento->id,$request->titulo_it,'it');
+            $mantenimiento->crearTraduccion('mantenimientos','subtitulo',$mantenimiento->id,$request->subtitulo_en,'en');
+            $mantenimiento->crearTraduccion('mantenimientos','subtitulo',$mantenimiento->id,$request->subtitulo_it,'it');
+            $mantenimiento->crearTraduccion('mantenimientos','texto',$mantenimiento->id,$request->texto_en,'en');
+            $mantenimiento->crearTraduccion('mantenimientos','texto',$mantenimiento->id,$request->texto_it,'it');
             return back()->with('success','Servicio Agregado');
         }else{
             return back()->with('error','Algo salió mal');
@@ -79,6 +85,12 @@ class MantenimientoController extends Controller
     public function edit($id)
     {
         $servicio=Mantenimiento::find($id);
+        $servicio->titulo_en=$servicio->obtenerTraduccion('mantenimientos','titulo',$servicio->id,'en');
+        $servicio->titulo_it=$servicio->obtenerTraduccion('mantenimientos','titulo',$servicio->id,'it');
+        $servicio->subtitulo_en=$servicio->obtenerTraduccion('mantenimientos','subtitulo',$servicio->id,'en');
+        $servicio->subtitulo_it=$servicio->obtenerTraduccion('mantenimientos','subtitulo',$servicio->id,'it');
+        $servicio->texto_en=$servicio->obtenerTraduccion('mantenimientos','texto',$servicio->id,'en');
+        $servicio->texto_it=$servicio->obtenerTraduccion('mantenimientos','texto',$servicio->id,'it');
         return view('admin.mantenimiento.editarMantenimiento',compact('servicio'));
     }
 
@@ -91,7 +103,7 @@ class MantenimientoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $categoria= Mantenimiento::find($id);
+        $servicio= Mantenimiento::find($id);
         $request->validate([
             'orden'=>'required',
             'titulo'=>'required',
@@ -102,10 +114,16 @@ class MantenimientoController extends Controller
            
         ]);
         if($request->has('imgServiciose')){
-            Storage::delete($categoria->imagen);
-            $categoria->imagen=$request->file('imgServiciose')->store('images/mantenimiento');
+            Storage::delete($servicio->imagen);
+            $servicio->imagen=$request->file('imgServiciose')->store('images/mantenimiento');
         }
-        if($categoria->update($request->all())){
+        $servicio->actualizarTraduccion('mantenimientos','titulo',$servicio->id,$request->titulo_en,'en');
+        $servicio->actualizarTraduccion('mantenimientos','titulo',$servicio->id,$request->titulo_it,'it');
+        $servicio->actualizarTraduccion('mantenimientos','subtitulo',$servicio->id,$request->subtitulo_en,'en');
+        $servicio->actualizarTraduccion('mantenimientos','subtitulo',$servicio->id,$request->subtitulo_it,'it');
+        $servicio->actualizarTraduccion('mantenimientos','texto',$servicio->id,$request->texto_en,'en');
+        $servicio->actualizarTraduccion('mantenimientos','texto',$servicio->id,$request->texto_it,'it');
+        if($servicio->update($request->all())){
             return back()->with('success','Servicio Actualizado');
         }else{
             return back()->with('error','Algo salió mal');
@@ -121,6 +139,9 @@ class MantenimientoController extends Controller
     public function destroy($id)
     {
         $mantenimiento=Mantenimiento::find($id);
+        $mantenimiento->eliminarTraducciones('mantenimientos','titulo',$mantenimiento->id);
+        $mantenimiento->eliminarTraducciones('mantenimientos','subtitulo',$mantenimiento->id);
+        $mantenimiento->eliminarTraducciones('mantenimientos','texto',$mantenimiento->id);
         Storage::delete($mantenimiento->imagen);
         $mantenimiento->delete();
     }

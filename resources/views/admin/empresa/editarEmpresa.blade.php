@@ -25,6 +25,10 @@
                                 <div class="col-6">
                                     <h6>Texto</h6>
                                     <textarea name="texto">{!!$empresa->texto!!}</textarea>
+                                    <h6>Texto Ingles</h6>
+                                    <textarea name="texto_en">{!!$empresa->texto_en!!}</textarea>
+                                    <h6>Texto Italiano</h6>
+                                    <textarea name="texto_it">{!!$empresa->texto_it!!}</textarea>
                                 </div>
                                 <div class="col-6">
                                     <h6>Imagen</h6>

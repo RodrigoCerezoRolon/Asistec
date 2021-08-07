@@ -75,6 +75,10 @@
                 <input type="text" class="form-control"  name="orden">
                 <label for="tituloedit">Nombre</label>
                 <input type="text" class="form-control" name="nombre">
+                <label for="">Nombre Ingles</label>
+                <input type="text" class="form-control" name="nombre_en" required>
+                <label for="">Nombre Italiano</label>
+                <input type="text" class="form-control" name="nombre_it" required> 
                 <label>Subcategorias</label>
                 <select class="form-control" name="subcategory_id" required>
                     @if($subcategorias->isEmpty())
@@ -114,6 +118,10 @@
                 <input type="text" class="form-control"  name="orden" id="orden_SubSubcat">
                 <label for="tituloedit">Nombre</label>
                 <input type="text" class="form-control" name="nombre" id="nombre_Subsubcat">
+                <label for="">Nombre Ingles</label>
+                <input type="text" class="form-control" name="nombre_en" id="nombre_Subsubcat_en" required>
+                <label for="">Nombre Italiano</label>
+                <input type="text" class="form-control" name="nombre_it" id="nombre_Subsubcat_it" required>  
                 <label>Subcategorias</label>
                 <select class="form-control" name="subcategory_id" required id="select_subcategoria_edit">
                     @if($subcategorias->isEmpty())

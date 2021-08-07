@@ -1,6 +1,6 @@
 
 $(document).ready(function () {
-    $('#summernote').summernote({
+    $('textarea').summernote({
         placeholder: 'Ingrese texto del slider',
         tabsize: 2,
         lang: 'es-ES',
@@ -95,8 +95,9 @@ function editarslider(id) {
                 var path= "../../storage/";
                $('#preview-img').attr('src',path+response.imagen);
                 $('#editar-orden').val(response.orden);
-                $('#editar-texto').val(response.texto);
-
+                $('#summernote-edit').summernote('code',response.texto);
+                $('#summernote-editEn').summernote('code', response.texto_en);
+                $('#summernote-editIt').summernote('code', response.texto_it);
                 // textoedit.setData(response.texto);
                 // textoediten.setData(response.textoen);
             },

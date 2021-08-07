@@ -28,8 +28,16 @@
                             <input type="text" class="form-control" name="orden" value="{{$caso->orden}}">
                             <h6>Titulo</h6>
                             <input type="text" class="form-control" name="titulo" value="{{$caso->titulo}}">
+                            <h6>Titulo Ingles</h6>
+                            <input type="text" class="form-control" name="titulo_en" value="{{$caso->titulo_en}}">
+                            <h6>Titulo Italiano</h6>
+                            <input type="text" class="form-control" name="titulo_it" value="{{$caso->titulo_it}}">
                             <h6>Texto</h6>
                             <textarea name="texto">{!!$caso->texto!!}</textarea>
+                            <h6>Texto Ingles</h6>
+                            <textarea name="texto">{!!$caso->texto_en!!}</textarea>
+                            <h6>Texto Italiano</h6>
+                            <textarea name="texto">{!!$caso->texto_it!!}</textarea>
                             <h6>Logo</h6>
                             @if ($caso->logo)
                                 <img src="{{asset(Storage::url($caso->logo))}}" class="img-fluid">

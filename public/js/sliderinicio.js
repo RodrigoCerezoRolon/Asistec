@@ -1,6 +1,6 @@
 
 $(document).ready(function () {
-    $('#summernote').summernote({
+    $('textarea').summernote({
         placeholder: 'Ingrese texto del slider',
         tabsize: 2,
         lang: 'es-ES',
@@ -16,34 +16,34 @@ $(document).ready(function () {
         
         ]
       });
-      $('#summernote-edit').summernote({
-        placeholder: 'Ingrese texto del slider',
-        tabsize: 2,
-        lang: 'es-ES',
-        height: 120,
-        fontNames: ['Roboto-Bold', 'Roboto-Light', 'Roboto-Medium', 'Roboto-Regular', 'Roboto-SemiBold'],
-        fontNamesIgnoreCheck:['Roboto-Bold', 'Roboto-Light', 'Roboto-Medium', 'Roboto-Regular', 'Roboto-SemiBold'],
-        toolbar: [
-          ['style', ['style']],
-          ['font', ['bold', 'underline', 'clear']],
-          ['fontNames', ['fontname']],
-          ['color', ['color']],
-          ['para', ['ul', 'ol', 'paragraph']]
+    //   $('#summernote-edit').summernote({
+    //     placeholder: 'Ingrese texto del slider',
+    //     tabsize: 2,
+    //     lang: 'es-ES',
+    //     height: 120,
+    //     fontNames: ['Roboto-Bold', 'Roboto-Light', 'Roboto-Medium', 'Roboto-Regular', 'Roboto-SemiBold'],
+    //     fontNamesIgnoreCheck:['Roboto-Bold', 'Roboto-Light', 'Roboto-Medium', 'Roboto-Regular', 'Roboto-SemiBold'],
+    //     toolbar: [
+    //       ['style', ['style']],
+    //       ['font', ['bold', 'underline', 'clear']],
+    //       ['fontNames', ['fontname']],
+    //       ['color', ['color']],
+    //       ['para', ['ul', 'ol', 'paragraph']]
         
-        ]
-      });
+    //     ]
+    //   });
    
     $('#agregarslider').on('submit',function(e){
         e.preventDefault();
-        var imagen=$('#imagen');
-        var orden=$('#orden').val();
-        var pagina=$('#pagina').val();
-        let texto=$('#summernote').summernote('code');
-         var form= new FormData();
-        form.append('orden',orden);
-        form.append('imagen',imagen[0].files[0]);
-        form.append('pagina',pagina);
-        form.append('texto',texto);
+        // var imagen=$('#imagen');
+        // var orden=$('#orden').val();
+        // var pagina=$('#pagina').val();
+        // let texto=$('#summernote').summernote('code');
+         var form= new FormData($('#agregarslider')[0]);
+        // form.append('orden',orden);
+        // form.append('imagen',imagen[0].files[0]);
+        // form.append('pagina',pagina);
+        // form.append('texto',texto);
         $.ajax({
             type: "POST",
             url: "agregarslider",
@@ -67,15 +67,15 @@ $(document).ready(function () {
   
     $('#actualizarslider').on('submit',function(e){
         e.preventDefault();
-        var form= new FormData();
+        var form= new FormData($('#actualizarslider')[0]);
         var id=$('#id').val();
-        var orden=$('#editar-orden').val();
-        var imagen=$('#editar-imagen');
-        var texto= $('#summernote-edit').summernote('code');
-        form.append('_method', 'PUT');
-        form.append('orden', orden);
-        form.append('editar-imagen', imagen[0].files[0]);
-        form.append('texto',texto);
+        // var orden=$('#editar-orden').val();
+        // var imagen=$('#editar-imagen');
+        // var texto= $('#summernote-edit').summernote('code');
+         form.append('_method', 'PUT');
+        // form.append('orden', orden);
+        // form.append('editar-imagen', imagen[0].files[0]);
+        // form.append('texto',texto);
         $.ajax({
             type: "POST",
             url: "actualizarslider/"+id,
@@ -109,7 +109,8 @@ function editarslider(id) {
                $('#preview-img').attr('src',path+response.imagen);
                 $('#editar-orden').val(response.orden);
                 $('#summernote-edit').summernote('code', response.texto);
-
+                $('#summernote-editEn').summernote('code', response.texto_en);
+                $('#summernote-editIt').summernote('code', response.texto_it);
                 // textoedit.setData(response.texto);
                 // textoediten.setData(response.textoen);
             },

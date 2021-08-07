@@ -26,11 +26,19 @@
                 @method('PUT')
                 <div class="col-md-12">
                     <h6>Titulo</h6>
-                    <input type="text" class="form-control" name="titulo" value="{{$solucion->titulo}}">
+                    <input type="text" class="form-control" name="titulo" value="{{$solucion->titulo}}" required>
+                    <h6>Titulo Ingles</h6>
+                    <input type="text" class="form-control" name="titulo_en" value="{{$solucion->titulo_en}}" required>
+                    <h6>Titulo Italiano</h6>
+                    <input type="text" class="form-control" name="titulo_it" value="{{$solucion->titulo_it}}" required>
                 </div>
                 <div class="col-12">
                     <h6>Texto</h6>
                     <textarea name="texto">{!!$solucion->texto!!}</textarea>
+                    <h6>Texto Ingles</h6>
+                    <textarea name="texto_en" id="texto">{!!$solucion->texto_en!!}</textarea>
+                    <h6>Texto Italino</h6>
+                    <textarea name="texto_it" id="texto">{!!$solucion->texto_it!!}</textarea>
                 </div>
                 <div class="col-12">
                     <h6>Imagen</h6>

@@ -51,7 +51,11 @@
             <input type="file" class="form-control-file" name="imagen" id="imagen" required>
             <small id="" class="form-text text-muted">Resolucion 1366 * 344px</small>
             <label>Texto</label>
-            <textarea id="summernote"  name="texto"></textarea>
+            <textarea id="summernote" name="texto"></textarea>
+            <label>Texto Ingles</label>
+            <textarea  name="texto_en"></textarea>
+            <label>Texto Italiano</label>
+            <textarea  name="texto_it"></textarea>
           </div>
         </div>
         <div class="modal-footer">
@@ -91,7 +95,11 @@
               <img id="preview-img" class="img-fluid" src=""> 
               <input class="form-control-file" type="file" name="editar-imagen" id="editar-imagen">
                <label>Texto</label>
-               <textarea id="summernote-edit"  name="texto"></textarea>
+               <textarea id="summernote-edit" name="texto"></textarea>
+               <label>Texto Ingles</label>
+               <textarea id="summernote-editEn" name="texto_en"></textarea>
+               <label>Texto Italiano</label>
+               <textarea id="summernote-editIt" name="texto_it"></textarea>
 
           </div>
          

@@ -23,13 +23,18 @@ class SectoresController extends Controller
         }
         try {
             $sector->save();
+            $sector->crearTraduccion('sectors','titulo',$sector->id,$request->titulo_en,'en');
+            $sector->crearTraduccion('sectors','titulo',$sector->id,$request->titulo_it,'it');
             return back()->with('success',"Sector Agregado");
         } catch (\Throwable $th) {
             return back()->with('error',$th->getMessage());
         }
     }
     public function edit($id){
-        return $sector=Sector::find($id);
+        $sector=Sector::find($id);
+        $sector->titulo_en=$sector->obtenerTraduccion('sectors','titulo',$sector->id,'en');
+        $sector->titulo_it=$sector->obtenerTraduccion('sectors','titulo',$sector->id,'it');
+        return $sector;
     }
     public function update(Request $request,$id){
         $sector=Sector::find($id);
@@ -37,11 +42,14 @@ class SectoresController extends Controller
             Storage::delete($sector->imagen);
             $sector->imagen=$request->file('imgSectore')->store('images/sectores');
         }
+        $sector->actualizarTraduccion('sectors','titulo',$sector->id,$request->titulo_en,'en');
+        $sector->actualizarTraduccion('sectors','titulo',$sector->id,$request->titulo_it,'it');
         $sector->update($request->all());
     }
     public function destroy($id){
         $sector=Sector::find($id);
         Storage::delete($sector->imagen);
+        $sector->eliminarTraducciones('sectors','titulo',$sector->id);
         $sector->delete();
     }
     public function vistaSectores(){

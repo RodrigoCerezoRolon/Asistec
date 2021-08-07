@@ -25,8 +25,16 @@
                                 <div class="col-12">
                                     <label>Titulo</label>
                                     <input type="text" class="form-control" name="titulo" value="{{$seccionSolucion->titulo}}">
+                                    <label>Titulo Ingles</label>
+                                    <input type="text" class="form-control" name="titulo_en" value="{{$seccionSolucion->titulo_en}}">
+                                    <label>Titulo Italiano</label>
+                                    <input type="text" class="form-control" name="titulo_it" value="{{$seccionSolucion->titulo_it}}">
                                     <label>Texto</label>
                                     <textarea id="editor" name="texto">{!!$seccionSolucion->texto!!}</textarea>
+                                    <label>Texto Ingles</label>
+                                    <textarea id="editor" name="texto_en">{!!$seccionSolucion->texto_en!!}</textarea>
+                                    <label>Texto Italiano</label>
+                                    <textarea id="editor" name="texto_it">{!!$seccionSolucion->texto_it!!}</textarea>
                                     <label>Imagen</label>
                                     <img class="img-fluid" src="{{asset(Storage::url($seccionSolucion->imagen))}}">
                                     <input type="file" class="form-control-file" name="imagenSolucion">
@@ -54,11 +62,56 @@
                                 <div class="col-12">
                                     <label>Titulo</label>
                                     <input type="text" class="form-control" name="titulo" value="{{$seccionEmpresa->titulo}}">
+                                    <label>Titulo Ingles</label>
+                                    <input type="text" class="form-control" name="titulo_en" value="{{$seccionEmpresa->titulo_en}}">
+                                    <label>Titulo Italiano</label>
+                                    <input type="text" class="form-control" name="titulo_it" value="{{$seccionEmpresa->titulo_it}}">
                                     <label>Texto</label>
                                     <textarea id="editor" name="texto">{!!$seccionEmpresa->texto!!}</textarea>
+                                    <label>Texto Ingles</label>
+                                    <textarea id="editor" name="texto_en">{!!$seccionEmpresa->texto_en!!}</textarea>
+                                    <label>Texto Italiano</label>
+                                    <textarea id="editor" name="texto_it">{!!$seccionEmpresa->texto_it!!}</textarea>
                                     <label>Imagen</label>
                                     <img class="img-fluid" src="{{asset(Storage::url($seccionEmpresa->imagen))}}">
                                     <input type="file" class="form-control-file" name="imagenEmpresa">
+                                    <small class="text-muted">Resolucion Recomendada 1366px * 268px</small>
+                                </div>
+                                
+                            </div>    
+                    </div>
+                    <div class="card-footer text-center">
+                        <button type="submit" class="btn btn-outline-info">
+                            Modificar
+                        </button>
+                    </form>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        Seccion Mantenimiento
+                    </div>
+                    <div class="card-body">
+                        <form action="{{route('inicio.actualizarSeccionEmpresa',$seccionMantenimiento->id)}}" enctype="multipart/form-data" method="POST">
+                            @method('PUT')
+                            @csrf
+                            <div class="form-row">
+                                <div class="col-12">
+                                    <label>Titulo</label>
+                                    <input type="text" class="form-control" name="titulo" value="{{$seccionMantenimiento->titulo}}">
+                                    <label>Titulo Ingles</label>
+                                    <input type="text" class="form-control" name="titulo_en" value="{{$seccionMantenimiento->titulo_en}}">
+                                    <label>Titulo Italiano</label>
+                                    <input type="text" class="form-control" name="titulo_it" value="{{$seccionMantenimiento->titulo_it}}">
+                                    <label>Texto</label>
+                                    <textarea id="editor" name="texto">{!!$seccionMantenimiento->texto!!}</textarea>
+                                    <label>Texto Ingles</label>
+                                    <textarea id="editor" name="texto_en">{!!$seccionMantenimiento->texto_en!!}</textarea>
+                                    <label>Texto Italiano</label>
+                                    <textarea id="editor" name="texto_it">{!!$seccionMantenimiento->texto_it!!}</textarea>
+                                    <label>Imagen</label>
+                                    <img class="img-fluid" src="{{asset(Storage::url($seccionMantenimiento->imagen))}}">
+                                    <input type="file" class="form-control-file" name="imagenMantenimiento">
                                     <small class="text-muted">Resolucion Recomendada 1366px * 268px</small>
                                 </div>
                                 

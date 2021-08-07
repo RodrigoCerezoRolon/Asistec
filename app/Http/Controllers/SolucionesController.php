@@ -56,6 +56,10 @@ class SolucionesController extends Controller
         }
         try {
             $solucion->save();
+            $solucion->crearTraduccion('solucions','titulo',$solucion->id,$request->titulo_en,'en');
+            $solucion->crearTraduccion('solucions','titulo',$solucion->id,$request->titulo_it,'it');
+            $solucion->crearTraduccion('solucions','texto',$solucion->id,$request->texto_en,'en');
+            $solucion->crearTraduccion('solucions','texto',$solucion->id,$request->texto_it,'it');
             return back()->with('success',"Solucion Agregada");
         } catch (\Throwable $th) {
             //return $th->getMessage();
@@ -87,6 +91,10 @@ class SolucionesController extends Controller
     public function edit($id)
     {
         $solucion=Solucion::find($id);
+        $solucion->titulo_en=$solucion->obtenerTraduccion('solucions','titulo',$solucion->id,'en');
+        $solucion->titulo_it=$solucion->obtenerTraduccion('solucions','titulo',$solucion->id,'it');
+        $solucion->texto_en=$solucion->obtenerTraduccion('solucions','texto',$solucion->id,'en');
+        $solucion->texto_it=$solucion->obtenerTraduccion('solucions','texto',$solucion->id,'it');
         $categorias=Categoria::orderby('orden',"ASC")->get();
         $subcategorias=SubCategoria::join('categorias','sub_categorias.category_id','=','categorias.id')
         ->orderby('categorias.nombre')->select('sub_categorias.*')->get();
@@ -110,6 +118,10 @@ class SolucionesController extends Controller
             $solucion->imagen= $request->file('img1')->store('images/soluciones');
         }
         try {
+            $solucion->actualizarTraduccion('solucions','titulo',$solucion->id,$request->titulo_en,'en');
+            $solucion->actualizarTraduccion('solucions','titulo',$solucion->id,$request->titulo_it,'it');
+            $solucion->actualizarTraduccion('solucions','texto',$solucion->id,$request->texto_en,'en');
+            $solucion->actualizarTraduccion('solucions','texto',$solucion->id,$request->texto_it,'it');
             $solucion->update($request->all());
             return back()->with('success',"Solucion Actualizada");
         } catch (Exception $th) {
@@ -126,6 +138,8 @@ class SolucionesController extends Controller
     public function destroy($id)
     {
         $solucion=Solucion::find($id);
+        $solucion->eliminarTraducciones('solucions','titulo',$solucion->id);
+        $solucion->eliminarTraducciones('solucions','texto',$solucion->id);
         Storage::delete($solucion->imagen);
         $solucion->delete();
     }

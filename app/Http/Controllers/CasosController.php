@@ -51,6 +51,10 @@ class CasosController extends Controller
         }
         try {
             $caso->save();
+            $caso->crearTraduccion('caso_exitos','titulo',$caso->id,$request->titulo_en,'en');
+            $caso->crearTraduccion('caso_exitos','titulo',$caso->id,$request->titulo_it,'it');
+            $caso->crearTraduccion('caso_exitos','texto',$caso->id,$request->texto_en,'en');
+            $caso->crearTraduccion('caso_exitos','texto',$caso->id,$request->texto_it,'it');
             return back()->with('success',"Caso agregado");
         } catch (\Throwable $th) {
             return back()->with('error',$th->getMessage());
@@ -77,6 +81,10 @@ class CasosController extends Controller
     public function edit($id)
     {
         $caso=CasoExito::find($id);
+        $caso->titulo_en=$caso->obtenerTraduccion('caso_exitos','titulo',$caso->id,'en');
+        $caso->titulo_it=$caso->obtenerTraduccion('caso_exitos','titulo',$caso->id,'it');
+        $caso->texto_en=$caso->obtenerTraduccion('caso_exitos','texto',$caso->id,'en');
+        $caso->texto_it=$caso->obtenerTraduccion('caso_exitos','texto',$caso->id,'it');
         return view('admin.casos.edit',compact('caso'));
     }
 
@@ -103,6 +111,10 @@ class CasosController extends Controller
             $caso->archivo=$request->file('arch')->store('images/casos');
         }
         try {
+            $caso->actualizarTraduccion('caso_exitos','titulo',$caso->id,$request->titulo_en,'en');
+            $caso->actualizarTraduccion('caso_exitos','titulo',$caso->id,$request->titulo_it,'it');
+            $caso->actualizarTraduccion('caso_exitos','texto',$caso->id,$request->texto_en,'en');
+            $caso->actualizarTraduccion('caso_exitos','texto',$caso->id,$request->texto_it,'it');
             $caso->update($request->all());
             return back()->with('success',"Caso actualizado");
         } catch (\Throwable $th) {
@@ -119,6 +131,7 @@ class CasosController extends Controller
     public function destroy($id)
     {
         $caso=CasoExito::find($id);
+        $caso->eliminarTraducciones('caso_exitos','titulo',$caso->id);
         $caso->delete();
     }
     public function vistaCasos(){

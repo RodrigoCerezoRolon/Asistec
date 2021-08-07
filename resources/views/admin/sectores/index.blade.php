@@ -76,7 +76,11 @@
                     <h6>Orden</h6>
                     <input type="text" class="form-control" name="orden">
                     <h6>Titulo</h6>
-                    <input type="text" class="form-control" name="titulo">
+                    <input type="text" class="form-control" name="titulo" required>
+                    <label for="">Titulo Ingles</label>
+                    <input type="text" class="form-control" name="titulo_en" required>
+                    <label for="">Titulo Italiano</label>
+                    <input type="text" class="form-control" name="titulo_it" required>  
                     <h6>Imagen</h6>
                     <input type="file" name="imgSector">
                     <h6>Seleccionar Solucion</h6>
@@ -117,6 +121,10 @@
                     <input type="text" class="form-control" name="orden" id="ordenSector">
                     <h6>Titulo</h6>
                     <input type="text" class="form-control" name="titulo" id="tituloSector">
+                    <label for="">Titulo Ingles</label>
+                    <input type="text" class="form-control" name="titulo_en" id="tituloSectorEn" required>
+                    <label for="">Titulo Italiano</label>
+                    <input type="text" class="form-control" name="titulo_it" id="tituloSectorIt" required>  
                     <h6>Imagen</h6>
                     <img id="previewSector" class="img-fluid">
                     <br>
@@ -180,6 +188,8 @@
                     $('#id_sector').val(id);
                     $('#ordenSector').val(response.orden);
                     $('#tituloSector').val(response.titulo);
+                    $('#tituloSectorEn').val(response.titulo_en);
+                    $('#tituloSectorIt').val(response.titulo_it);
                     $('#previewSector').attr('src',path+response.imagen);
                     $('#solucionSector').val(response.solucion_id);
                     $('#tipoSector').val(response.tipo);

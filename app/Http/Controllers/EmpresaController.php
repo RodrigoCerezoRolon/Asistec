@@ -13,6 +13,8 @@ class EmpresaController extends Controller
 {
     public function editarEmpresa(){
         $empresa=Empresa::find(1);
+        $empresa->texto_en=$empresa->obtenerTraduccion('empresas','texto',$empresa->id,'en');
+        $empresa->texto_it=$empresa->obtenerTraduccion('empresas','texto',$empresa->id,'it');
         return view('admin.empresa.editarEmpresa',compact('empresa'));
     }
     public function actualizarEmpresa(Request $request){
@@ -22,10 +24,13 @@ class EmpresaController extends Controller
             $Empresa->imagen= $request->file('imgEmpresa')->store('images');
         }
         if($Empresa->update($request->all())){
+            $Empresa->actualizarTraduccion('empresas','texto',$Empresa->id,$request->texto_en,'en');
+            $Empresa->actualizarTraduccion('empresas','texto',$Empresa->id,$request->texto_it,'it');
             return back()->with('success','Contenido Actualizado');
         }else{
             return back()->with('error','Algo salió mal');
         }
+      
     }
     public function actualizarIconoEmpresa(Request $request,$id){
         $empresa=Empresa::find($id);

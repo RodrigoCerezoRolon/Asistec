@@ -22,6 +22,7 @@
         text-transform: uppercase;
     }
     </style>
+    <input type="hidden" id="urlPrincipal" value="{{url('/')}}">
     <div class="d-flex Servicios_LineaGris align-items-center ps-5">
         <i class="fas fa-home"></i> |
         Soluciones
@@ -29,6 +30,7 @@
     <!--Selector de Soluciones-->
     <div class="container-fluid py-5 ps-md-5" style="background-color: #AEDADB33">
         <form id="formFiltrado">
+            
         <div class="row">
             <div class="col-md-12 text-center" style="font-family: 'Roboto-Light';font-size:32px;color:#053E85">
                 Encuentre la solución para todo tipo de proyecto
@@ -175,5 +177,13 @@
               </div>
         </div>
     </div>
-    <script src="{{asset('js/filtrado.js')}}"></script>
+    @php
+          $routeName = Route::currentRouteName();
+    @endphp
+    @if ($routeName=='solucionPorCat' || $routeName=='solucionPorSub' || $routeName=='solucionPorSubSub' )
+    <script src="{{asset('js/filtradoDesdeBusqueda.js')}}"></script>
+    @else 
+    <script src="{{asset('js/filtrado.js')}}"></script>    
+    @endif
+
 @endsection

@@ -128,7 +128,11 @@
                 <label for="orden">Orden</label>
                 <input type="text" class="form-control"  name="orden" required>
                 <label for="tituloedit">Nombre</label>
-                <input type="text" class="form-control" name="nombre" required>   
+                <input type="text" class="form-control" name="nombre" required> 
+                <label for="">Nombre Ingles</label>
+                <input type="text" class="form-control" name="nombre_en" required>
+                <label for="">Nombre Italiano</label>
+                <input type="text" class="form-control" name="nombre_it" required>  
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
@@ -159,7 +163,10 @@
                 <input type="text" class="form-control"  name="orden" id="orden_cat">
                 <label for="tituloedit">Nombre</label>
                 <input type="text" class="form-control" name="nombre" id="nombre_cat">
-                
+                <label for="">Nombre Ingles</label>
+                <input type="text" class="form-control" name="nombre_en" id="nombre_cat_en" required>
+                <label for="">Nombre Italiano</label>
+                <input type="text" class="form-control" name="nombre_it" id="nombre_cat_it" required>  
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>

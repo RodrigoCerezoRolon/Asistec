@@ -32,8 +32,23 @@
                             <h6>Titulo</h6>
                             <input type="text" class="form-control" name="titulo" value="{{$servicio->titulo}}">
                             {!!$errors->first('titulo','<small class="text-danger">:message</small>')!!}
+                            <h6>Titulo Ingles</h6>
+                            <input type="text" class="form-control" name="titulo_en" value="{{$servicio->titulo_en}}">
+                            <h6>Titulo Italiano</h6>
+                            <input type="text" class="form-control" name="titulo_it" value="{{$servicio->titulo_it}}">
                             <h6>Subtitulo</h6>
                             <input type="text" class="form-control" name="subtitulo"  value="{{$servicio->subtitulo}}">
+                            <h6>Subtitulo Ingles</h6>
+                            <input type="text" class="form-control" name="subtitulo_en" value="{{$servicio->subtitulo_en}}">
+                            <h6>Subtitulo Italiano</h6>
+                            <input type="text" class="form-control" name="subtitulo_it" value="{{$servicio->subtitulo_it}}">
+                            <h6>Texto</h6>
+                            <textarea name="texto">{!!$servicio->texto!!}</textarea>
+                            {!!$errors->first('titulo','<small class="text-danger">:message</small>')!!}
+                            <h6>Texto Ingles</h6>
+                            <textarea name="texto_en" class="textarea">{!!$servicio->texto_en!!}</textarea>
+                            <h6>Texto Italiano</h6>
+                            <textarea name="texto_it" class="textarea">{!!$servicio->texto_it!!}</textarea>
                             <h6>Imagen</h6>
                             <img src="/storage/{{$servicio->imagen}}" width="60px" id="previewImgServicio">
                             <br>
@@ -53,6 +68,21 @@
         </div>
     </div>
     <script>
+         $(document).ready(function() {
+             $('textarea').summernote({
+                 lang: 'es-ES',
+                 height: 230,
+                     fontNames: ['Roboto-Bold', 'Roboto-Light', 'Roboto-Medium', 'Roboto-Regular', 'Roboto-SemiBold'],
+                     toolbar: [
+                     ['style', ['style']],
+                     ['font', ['bold', 'underline', 'clear']],
+                     ['fontNames', ['fontname']],
+                     ['color', ['color']],
+                     ['para', ['ul', 'ol', 'paragraph']]
+                     
+                     ]
+             });
+         });
         const fileInput= document.getElementById('imgServicio');
         const img=document.getElementById('previewImgServicio')
         fileInput.addEventListener('change',(e)=>{
@@ -65,4 +95,5 @@
         });
 
     </script>
+    
 @endsection

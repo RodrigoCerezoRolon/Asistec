@@ -27,8 +27,16 @@
                             <input type="text" class="form-control" name="orden">
                             <h6>Titulo</h6>
                             <input type="text" class="form-control" name="titulo">
+                            <h6>Titulo Ingles</h6>
+                            <input type="text" class="form-control" name="titulo_en">
+                            <h6>Titulo Italiano</h6>
+                            <input type="text" class="form-control" name="titulo_it">
                             <h6>Texto</h6>
                             <textarea name="texto"></textarea>
+                            <h6>Texto Ingles</h6>
+                            <textarea name="texto_en"></textarea>
+                            <h6>Texto Italiano</h6>
+                            <textarea name="texto_it"></textarea>
                             <h6>Logo</h6>
                             <input type="file" name="logo">
                             <h6>Imagen</h6>

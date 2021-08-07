@@ -64,6 +64,12 @@ class ProductosController extends Controller
        
      
        if($producto->save()){ 
+           $producto->crearTraduccion('productos','titulo',$producto->id,$request->titulo_en,'en');
+           $producto->crearTraduccion('productos','titulo',$producto->id,$request->titulo_it,'it');
+           $producto->crearTraduccion('productos','texto',$producto->id,$request->texto_en,'en');
+           $producto->crearTraduccion('productos','texto',$producto->id,$request->texto_it,'it');
+           $producto->crearTraduccion('productos','texto_video',$producto->id,$request->texto_video_en,'en');
+           $producto->crearTraduccion('productos','texto_video',$producto->id,$request->texto_video_it,'it');
            $producto->soluciones()->attach($request->soluciones);
            return back()->with('success','Producto Agregado');
        }else{
@@ -92,6 +98,12 @@ class ProductosController extends Controller
     public function edit($id)
     { 
         $producto=Producto::find($id);
+        $producto->titulo_en=$producto->obtenerTraduccion('productos','titulo',$producto->id,'en');
+        $producto->titulo_it=$producto->obtenerTraduccion('productos','titulo',$producto->id,'it');
+        $producto->texto_en=$producto->obtenerTraduccion('productos','texto',$producto->id,'en');
+        $producto->texto_it=$producto->obtenerTraduccion('productos','texto',$producto->id,'it');
+        $producto->texto_video_en=$producto->obtenerTraduccion('productos','texto_video',$producto->id,'en');
+        $producto->texto_video_it=$producto->obtenerTraduccion('productos','texto_video',$producto->id,'it');
         $soluciones=Solucion::all();
         return view('admin.productos.edit',compact('producto','soluciones'));
     }
@@ -127,7 +139,14 @@ class ProductosController extends Controller
             Storage::delete($producto->ficha);
             $producto->ficha=$request->file('fichae')->store('fichas');
         }
+        $producto->actualizarTraduccion('productos','titulo',$producto->id,$request->titulo_en,'en');
+        $producto->actualizarTraduccion('productos','titulo',$producto->id,$request->titulo_it,'it');
+        $producto->actualizarTraduccion('productos','texto',$producto->id,$request->texto_en,'en');
+        $producto->actualizarTraduccion('productos','texto',$producto->id,$request->texto_it,'it');
+        $producto->actualizarTraduccion('productos','texto_video',$producto->id,$request->texto_video_en,'en');
+        $producto->actualizarTraduccion('productos','texto_video',$producto->id,$request->texto_video_it,'it');
         if($producto->update($request->all())){
+          
             $producto->soluciones()->sync($request->soluciones);
             return back()->with('success',"Producto Actualizado");
         }else{
@@ -144,6 +163,10 @@ class ProductosController extends Controller
     public function destroy($id)
     {
         $producto=Producto::find($id);
+        $producto->eliminarTraducciones('productos','titulo',$producto->id);
+        $producto->eliminarTraducciones('productos','texto',$producto->id);
+        $producto->eliminarTraducciones('productos','texto_video',$producto->id);
+
         Storage::delete([$producto->img_uno,$producto->img_dos, $producto->img_tres, $producto->img_cuatro,$producto->ficha ]);
         $producto->delete();
     }

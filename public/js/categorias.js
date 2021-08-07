@@ -62,6 +62,8 @@ function editarCategoria(id){
         $('#id_Cat').val(id);
         $('#orden_cat').val(response.orden);
         $('#nombre_cat').val(response.nombre);
+        $('#nombre_cat_en').val(response.nombre_en);
+        $('#nombre_cat_it').val(response.nombre_it);
         }
     });
 }

@@ -22,6 +22,8 @@ class SlidersController extends Controller
     }
    public function EditarSlider($id){
        $slider= Sliders::findorFail($id);
+       $slider->texto_en=$slider->obtenerTraduccion('sliders','texto',$slider->id,'en');
+       $slider->texto_it=$slider->obtenerTraduccion('sliders','texto',$slider->id,'it');
        return $slider;
    }
    public function AgregarSlider(Request $request){
@@ -34,9 +36,12 @@ class SlidersController extends Controller
            $slider->imagen=$request->file('imagen')->store('images/sliders');
        }
        $slider->save();
+       $slider->crearTraduccion('sliders','texto',$slider->id,$request->texto_en,'en');
+       $slider->crearTraduccion('sliders','texto',$slider->id,$request->texto_it,'it');
    }
    public function EliminarSlider($id){
        $slider= Sliders::findorFail($id);
+       $slider->eliminarTraducciones('sliders','texto');
        $slider->delete();
    }
    public function ActualizarSlider(Request $request,$id){
@@ -45,6 +50,8 @@ class SlidersController extends Controller
            Storage::delete($slider->imagen);
            $slider->imagen=$request->file('editar-imagen')->store('images/sliders');
        }
+       $slider->actualizarTraduccion('sliders','texto',$slider->id,$request->texto_en,'en');
+       $slider->actualizarTraduccion('sliders','texto',$slider->id,$request->texto_it,'it');
        $slider->update($request->all());
-   }
+    }
 }

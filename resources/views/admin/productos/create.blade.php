@@ -27,12 +27,24 @@
                             @csrf
                             <h6>Titulo</h6>
                             <input type="text" class="form-control" name="titulo">
+                            <h6>Titulo Ingles</h6>
+                            <input type="text" class="form-control" name="titulo_en" required>
+                            <h6>Titulo Italiano</h6>
+                            <input type="text" class="form-control" name="titulo_it" required>
                             <h6>Texto</h6>
                             <textarea name="texto" class="textarea"></textarea>
+                            <h6>Texto Ingles</h6>
+                            <textarea name="texto_en" class="textarea" id="texto"></textarea>
+                            <h6>Texto Italiano</h6>
+                            <textarea name="texto_it" class="textarea" id="texto"></textarea>
                             <h6>Enlace Video</h6>
                             <input type="text" class="form-control" name="enlace">
                             <h6>Texto Video</h6>
                             <textarea name="texto_video" class="textarea"></textarea>
+                            <h6>Texto Video Ingles</h6>
+                            <textarea name="texto_video_en" class="textarea"></textarea>
+                            <h6>Texto Video Italino</h6>
+                            <textarea name="texto_video_it" class="textarea"></textarea>
                             <div class="row">
                                 <div class="col-md-6">
                                     <h6>Imagen Uno</h6>

@@ -28,8 +28,16 @@
                             @csrf
                             <h6>Titulo</h6>
                             <input type="text" class="form-control" name="titulo" value="{{$producto->titulo}}">
+                            <h6>Titulo Ingles</h6>
+                            <input type="text" class="form-control" name="titulo_en" value="{{$producto->titulo_en}}">
+                            <h6>Titulo Italiano</h6>
+                            <input type="text" class="form-control" name="titulo_it" value="{{$producto->titulo_it}}">
                             <h6>Texto</h6>
                             <textarea name="texto" class="textarea">{!!$producto->texto!!}</textarea>
+                            <h6>Texto Ingles</h6>
+                            <textarea name="texto_en" class="textarea">{!!$producto->texto_en!!}</textarea>
+                            <h6>Texto Italiano</h6>
+                            <textarea name="texto_it" class="textarea">{!!$producto->texto_it!!}</textarea>
                             <div class="row">
                                 <div class="col-md-6">
                                     <h6>Imagen Uno</h6>

@@ -55,6 +55,10 @@ class ProductosEspecialesController extends Controller
        
      
        if($producto->save()){ 
+           $producto->crearTraduccion('producto_especials','titulo',$producto->id,$request->titulo_en,'en');
+           $producto->crearTraduccion('producto_especials','titulo',$producto->id,$request->titulo_it,'it');
+           $producto->crearTraduccion('producto_especials','texto',$producto->id,$request->texto_en,'en');
+           $producto->crearTraduccion('producto_especials','texto',$producto->id,$request->texto_it,'it');
            return back()->with('success','Producto Agregado');
        }else{
            return back()->with('error','Algo salió mal');
@@ -82,6 +86,10 @@ class ProductosEspecialesController extends Controller
     public function edit($id)
     { 
         $producto=ProductoEspecial::find($id);
+        $producto->titulo_en=$producto->obtenerTraduccion('producto_especials','titulo',$producto->id,'en');
+        $producto->titulo_it=$producto->obtenerTraduccion('producto_especials','titulo',$producto->id,'it');
+        $producto->texto_en=$producto->obtenerTraduccion('producto_especials','texto',$producto->id,'en');
+        $producto->texto_it=$producto->obtenerTraduccion('producto_especials','texto',$producto->id,'it');
         return view('admin.productosEspeciales.edit',compact('producto'));
     }
 
@@ -116,6 +124,10 @@ class ProductosEspecialesController extends Controller
             Storage::delete($producto->ficha);
             $producto->ficha=$request->file('fichae')->store('fichas');
         }
+        $producto->actualizarTraduccion('producto_especials','titulo',$producto->id,$request->titulo_en,'en');
+        $producto->actualizarTraduccion('producto_especials','titulo',$producto->id,$request->titulo_it,'it');
+        $producto->actualizarTraduccion('producto_especials','texto',$producto->id,$request->texto_en,'en');
+        $producto->actualizarTraduccion('producto_especials','texto',$producto->id,$request->texto_it,'it');
         if($producto->update($request->all())){
             return back()->with('success',"Producto Actualizado");
         }else{
@@ -132,6 +144,9 @@ class ProductosEspecialesController extends Controller
     public function destroy($id)
     {
         $producto=ProductoEspecial::find($id);
+        $producto->eliminarTraducciones('producto_especials','titulo',$producto->id);
+        $producto->eliminarTraducciones('producto_especials','texto',$producto->id);
+
         Storage::delete([$producto->img_uno,$producto->img_dos, $producto->img_tres, $producto->img_cuatro,$producto->ficha ]);
         $producto->delete();
     }
