@@ -36,6 +36,7 @@ Route::middleware([\App\Http\Middleware\CheckLocale::class])->group(function () 
   Route::get('sectores','SectoresController@vistaSectores')->name('sectores');
   Route::get('casos-de-exito','CasosController@vistaCasos')->name('casos');
   Route::get('clientes','ClientesController@vistaClientes')->name('clientes');
+  Route::post('clientes','ClientesController@filtrarClientes')->name('filtrarClientes');
   Route::get('presupuesto','ContactoController@vistaPresupuesto')->name('presupuesto');
   Route::get('presupuesto/{id}','ContactoController@vistaPresupuestoProd')->name('presupuesto.prod');
   Route::post('presupuestoProd','ContactoController@presupuestoProd');

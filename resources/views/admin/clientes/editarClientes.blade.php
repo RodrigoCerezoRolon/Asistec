@@ -1,6 +1,6 @@
 @extends('home')
 @section('contenido')
-    <script src="{{asset('js/clientes.js')}}"></script>
+    <script src="{{asset('js/clientes.js')}}" defer></script>
     <div class="container my-5">
         <div class="row">
             <!--Clientes-->
@@ -73,7 +73,25 @@
             <input type="file" class="form-control-file" name="imagen" id="imgCliente">
             <small class="text-muted"><strong> Resolucion Recomendada 200px *  200px </strong> </small>
             <br>
-           
+            <label>Caso de Exito</label>
+            <select class="form-control" name="caso_id">
+                @foreach ($casos as $caso)
+                    <option value="{{$caso->id}}">{{$caso->titulo}}</option>
+                @endforeach
+            </select>
+            <label>Sector</label>
+            <select class="form-control" name="sector_id">
+                @foreach ($sectores as $sector)
+                    <option value="{{$sector->id}}">{{$sector->titulo}}</option>
+                @endforeach
+            </select>
+            <label>Tipo de Empresa</label>
+            <select class="form-control" name="tipo_empresa_id">
+                @foreach ($sectoresEmpresa as $sectorEmpresa)
+                    <option value="{{$sectorEmpresa->id}}">{{$sectorEmpresa->titulo}}</option>
+                @endforeach
+            </select>
+          
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
@@ -99,10 +117,29 @@
         <div class="modal-body">
             <label>Orden</label>
             <input type="text" class="form-control" name="orden" id="ordenedit">
-            <label>Imagen</label>
+            <label>Logo Cliente</label>
             <img src="" id="preview" class="img-fluid" width="150px">
             <input type="file" class="form-control-file" name="imagenedit" id="imagenedit" >
             <small class="text-muted"><strong> Resolucion Recomendada 200px * 200px  </strong> </small>
+            <br>
+            <label>Caso de Exito</label>
+            <select class="form-control" name="caso_id" id="casoEdit">
+                @foreach ($casos as $caso)
+                    <option value="{{$caso->id}}">{{$caso->titulo}}</option>
+                @endforeach
+            </select>
+            <label>Sector</label>
+            <select class="form-control" name="sector_id" id="sectorEdit">
+                @foreach ($sectores as $sector)
+                    <option value="{{$sector->id}}">{{$sector->titulo}}</option>
+                @endforeach
+            </select>
+            <label>Tipo de Empresa</label>
+            <select class="form-control" name="tipo_empresa_id" id="tipoEmpresa">
+                @foreach ($sectoresEmpresa as $sectorEmpresa)
+                    <option value="{{$sectorEmpresa->id}}">{{$sectorEmpresa->titulo}}</option>
+                @endforeach
+            </select>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>

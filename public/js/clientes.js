@@ -53,11 +53,14 @@ function editarCliente(id){
         type: "get",
         url: "editarCliente/"+id,
         success: function (response) {
-            //console.log(response);
+            console.log(response);
             $('#id').val(id);
             var path= "../../storage/";
             $('#preview').attr('src',path+response.imagen);
             $('#ordenedit').val(response.orden);
+            $('#casoEdit').val(response.caso_id);
+            $('#sectorEdit').val(response.sector_id);
+            $('#tipoEmpresa').val(response.tipo_empresa_id);
         },
         error: function(response){
             console.log(response);

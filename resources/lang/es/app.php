@@ -26,5 +26,6 @@ return [
    'Volver'=>'Volver',
    'Siguiente'=>'Siguiente',
    'DatosPersonales'=>'DATOS PERSONALES',
-   'Consulta'=>'CONSULTA'
+   'Consulta'=>'CONSULTA',
+   'Filtrar'=>'Filtrar Por'
 ];

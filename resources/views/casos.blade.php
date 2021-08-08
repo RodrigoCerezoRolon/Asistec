@@ -34,7 +34,7 @@
             <div class="lineaCeleste mx-auto"></div>
         </div>
         @foreach ($casos as $caso)
-            <div class="col-md-6 mb-5">
+            <div class="col-md-6 mb-5" id="caso{{$caso->id}}">
                 <img src="{{asset(Storage::url($caso->imagen))}}" class="img-fluid">
             </div>
             <div class="col-md-6 pt-5 mb-5">
