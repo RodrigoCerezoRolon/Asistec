@@ -10,4 +10,8 @@ class CasoExito extends Model
 {
     use HasFactory,SeccionInicioMutators;
     protected $guarded=['id'];
+
+    public function soluciones(){
+        return $this->belongsToMany(Solucion::class,'caso_soluciones');   
+    }
 }

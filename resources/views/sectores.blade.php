@@ -31,7 +31,7 @@
             </div>
             @foreach ($sectoresEmpresa as $sectorEmp)
             <div class="col-md-3  my-4 ">
-                <a class="Sector_link" href="{{route('solucion',$sectorEmp->solucion_id)}}">
+                {{-- <a class="Sector_link" href="{{route('solucion',$sectorEmp->solucion_id)}}"> --}}
                     <div class="px-2 py-3" style=" background-color:#AEDADB33;height: 227px;
                     width: 288px;
                     display: flex;
@@ -50,8 +50,12 @@
                     <div class="Sector_titulo">
                         {{$sectorEmp->titulo}}
                     </div>
-                </a>
-               
+                {{-- </a> --}}
+                @foreach ($sectorEmp->soluciones()->get() as $solucion)
+                    <a href="{{route('solucion',$solucion->id)}}" class="btn rounded-pill btn-outline d-block my-1" style="color:#1EBCC1;border:1px solid #1EBCC1;font-family:'Roboto-Bold';font-size:13px;text-transform:uppercase">
+                       {{$solucion->titulo}}
+                    </a>
+                @endforeach
               </div>
             @endforeach
             <div class="col-md-12 mb-5">
@@ -62,7 +66,7 @@
             </div>
             @foreach ($sectores as $sector)
             <div class="col-md-3  my-4 ">
-                <a class="Sector_link" href="{{route('solucion',$sector->solucion_id)}}">
+                {{-- <a class="Sector_link" href="{{route('solucion',$sector->solucion_id)}}"> --}}
                     <div class="px-2 py-3" style=" background-color:#AEDADB33;height: 227px;
                     width: 288px;
                     display: flex;
@@ -81,10 +85,15 @@
                     <div class="Sector_titulo">
                         {{$sector->titulo}}
                     </div>
-                </a>
-               
+                {{-- </a> --}}
+                @foreach ($sector->soluciones()->get() as $solucion)
+                    <a href="{{route('solucion',$solucion->id)}}" class="btn rounded-pill btn-outline d-block my-1" style="color:#1EBCC1;border:1px solid #1EBCC1;font-family:'Roboto-Bold';font-size:13px;text-transform:uppercase">
+                       {{$solucion->titulo}}
+                    </a>
+                @endforeach
               </div>
             @endforeach
+           
         </div>
     </div>
 @endsection

@@ -25,6 +25,7 @@ class SectoresController extends Controller
             $sector->save();
             $sector->crearTraduccion('sectors','titulo',$sector->id,$request->titulo_en,'en');
             $sector->crearTraduccion('sectors','titulo',$sector->id,$request->titulo_it,'it');
+            $sector->soluciones()->attach($request->soluciones);
             return back()->with('success',"Sector Agregado");
         } catch (\Throwable $th) {
             return back()->with('error',$th->getMessage());
@@ -34,6 +35,7 @@ class SectoresController extends Controller
         $sector=Sector::find($id);
         $sector->titulo_en=$sector->obtenerTraduccion('sectors','titulo',$sector->id,'en');
         $sector->titulo_it=$sector->obtenerTraduccion('sectors','titulo',$sector->id,'it');
+        $sector->soluciones=$sector->soluciones()->get()->pluck('id');
         return $sector;
     }
     public function update(Request $request,$id){
@@ -45,6 +47,7 @@ class SectoresController extends Controller
         $sector->actualizarTraduccion('sectors','titulo',$sector->id,$request->titulo_en,'en');
         $sector->actualizarTraduccion('sectors','titulo',$sector->id,$request->titulo_it,'it');
         $sector->update($request->all());
+        $sector->soluciones()->sync($request->soluciones);
     }
     public function destroy($id){
         $sector=Sector::find($id);

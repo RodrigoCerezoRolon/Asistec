@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\CasoExito;
 use App\Models\Contacto;
 use App\Models\Logos;
+use App\Models\Solucion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -28,7 +29,8 @@ class CasosController extends Controller
      */
     public function create()
     {
-        return view('admin.casos.create');
+        $soluciones=Solucion::all();
+        return view('admin.casos.create',compact('soluciones'));
     }
 
     /**
@@ -55,6 +57,7 @@ class CasosController extends Controller
             $caso->crearTraduccion('caso_exitos','titulo',$caso->id,$request->titulo_it,'it');
             $caso->crearTraduccion('caso_exitos','texto',$caso->id,$request->texto_en,'en');
             $caso->crearTraduccion('caso_exitos','texto',$caso->id,$request->texto_it,'it');
+            $caso->soluciones()->attach($request->soluciones);
             return back()->with('success',"Caso agregado");
         } catch (\Throwable $th) {
             return back()->with('error',$th->getMessage());
@@ -85,7 +88,8 @@ class CasosController extends Controller
         $caso->titulo_it=$caso->obtenerTraduccion('caso_exitos','titulo',$caso->id,'it');
         $caso->texto_en=$caso->obtenerTraduccion('caso_exitos','texto',$caso->id,'en');
         $caso->texto_it=$caso->obtenerTraduccion('caso_exitos','texto',$caso->id,'it');
-        return view('admin.casos.edit',compact('caso'));
+        $soluciones=Solucion::all();
+        return view('admin.casos.edit',compact('caso','soluciones'));
     }
 
     /**
@@ -116,6 +120,7 @@ class CasosController extends Controller
             $caso->actualizarTraduccion('caso_exitos','texto',$caso->id,$request->texto_en,'en');
             $caso->actualizarTraduccion('caso_exitos','texto',$caso->id,$request->texto_it,'it');
             $caso->update($request->all());
+            $caso->soluciones()->sync($request->soluciones);
             return back()->with('success',"Caso actualizado");
         } catch (\Throwable $th) {
             return back()->with('error',$th->getMessage());

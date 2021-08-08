@@ -1,5 +1,12 @@
 @extends('home')
 @section('contenido')
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <style>
+        .select2-container {
+    width: 100% !important;
+}
+    </style>
     <div class="container mt-3">
         <div class="row">
             <div class="col-md-12">
@@ -83,12 +90,15 @@
                     <input type="text" class="form-control" name="titulo_it" required>  
                     <h6>Imagen</h6>
                     <input type="file" name="imgSector">
-                    <h6>Seleccionar Solucion</h6>
-                    <select class="form-control" name="solucion_id">
-                        @foreach ($soluciones as $solucion)
-                            <option value="{{$solucion->id}}">{{$solucion->titulo}}</option>
-                        @endforeach
-                    </select>
+                  
+                        <h6>Seleccionar Soluciones</h6>
+                        <select class="js-example-basic-multiple form-control" name="soluciones[]" multiple="multiple">
+                           @foreach ($soluciones as $solucion)
+                               <option value="{{$solucion->id}}">{{$solucion->titulo}}</option>
+                               ...
+                           @endforeach
+                        </select>
+                   
                     <h6>Seleccionar Tipo</h6>
                     <select class="form-control" name="tipo">
                         <option value="1">Empresa</option>
@@ -129,12 +139,19 @@
                     <img id="previewSector" class="img-fluid">
                     <br>
                     <input type="file" name="imgSectore">
-                    <h6>Seleccionar Solucion</h6>
+                    {{-- <h6>Seleccionar Solucion</h6>
                     <select class="form-control" name="solucion_id" id="solucionSector">
                         @foreach ($soluciones as $solucion)
                             <option value="{{$solucion->id}}">{{$solucion->titulo}}</option>
                         @endforeach
-                    </select>
+                    </select> --}}
+                    <h6>Seleccionar Soluciones</h6>
+                        <select class="js-example-basic-multiple form-control" id="solucionesEdit" name="soluciones[]" multiple="multiple">
+                           @foreach ($soluciones as $solucion)
+                               <option value="{{$solucion->id}}">{{$solucion->titulo}}</option>
+                               ...
+                           @endforeach
+                        </select>
                     <h6>Seleccionar Tipo</h6>
                     <select class="form-control" name="tipo" id="tipoSector">
                         <option value="1">Empresa</option>
@@ -151,6 +168,7 @@
     </div>
     <script>
         $(function(){
+            $('.js-example-basic-multiple').select2();
             $('#formEdit').on('submit',(e)=>{
                 e.preventDefault();
                 let id=$('#id_sector').val();
@@ -185,13 +203,19 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
                 success: function (response) {
+                    console.log(response);
+                    let soluciones=[];
                     $('#id_sector').val(id);
                     $('#ordenSector').val(response.orden);
                     $('#tituloSector').val(response.titulo);
                     $('#tituloSectorEn').val(response.titulo_en);
                     $('#tituloSectorIt').val(response.titulo_it);
                     $('#previewSector').attr('src',path+response.imagen);
-                    $('#solucionSector').val(response.solucion_id);
+                    // $('#solucionesEdit').val([response.soluciones[0]]);
+
+                    // response.soluciones.forEach(element => soluciones.push(element));
+                    $('#solucionesEdit').val(response.soluciones);
+                    $('#solucionesEdit').trigger('change');
                     $('#tipoSector').val(response.tipo);
                 },
                 error: function(response){

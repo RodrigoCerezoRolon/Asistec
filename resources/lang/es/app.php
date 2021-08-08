@@ -11,7 +11,7 @@ return [
    'UstedQuiere'=>'UstedQuiere',
    'Representadas'=>'Representadas',
    'VerSoluciones'=>'Ver Soluciones',
-   'VerMas'=>'Ver M&acutes',
+   'VerMas'=>'Ver M&aacutes',
    'BtnBuscar'=>'Buscar',
    'ProductosEspeciales'=>'Productos Especiales',
    'Fabricamos'=>'Fabricamos equipos hidráulicos exclusivos para la necesidad de cada uno de nuestros clientes. Nuestros equipos estan caracterizados por un alto rendimiento y confiabilidad, construidos en chapa de acero. Todos los componentes se encuentran montado sobre la tapa provista de cancamos, que simplifican su desplazamiento.',

@@ -45,9 +45,16 @@
                 <div class="Caso_texto">
                     {!!$caso->texto!!}
                 </div>
-                <a href="{{asset(Storage::url($caso->archivo))}}" download="" class="btn rounded-pill btn-outline" style="color:#1EBCC1;border:1px solid #1EBCC1;font-family:'Roboto-Bold';font-size:13px;text-transform:uppercase">
+                <a href="{{asset(Storage::url($caso->archivo))}}" download="" class="btn rounded-pill btn-outline " style="color:#1EBCC1;border:1px solid #1EBCC1;font-family:'Roboto-Bold';font-size:13px;text-transform:uppercase">
                    @lang('app.DescargarCaso')
                 </a>
+                <div class="mt-2">
+                @foreach ($caso->soluciones()->get() as $solucion)
+                    <a href="{{route('solucion',$solucion->id)}}" class="btn rounded-pill btn-outline " style="color:#1EBCC1;border:1px solid #1EBCC1;font-family:'Roboto-Bold';font-size:13px;text-transform:uppercase">
+                       {{$solucion->titulo}}
+                    </a>
+                @endforeach
+                </div>
             </div>  
             <hr>
         @endforeach

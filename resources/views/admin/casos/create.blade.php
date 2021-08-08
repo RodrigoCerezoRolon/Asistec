@@ -1,5 +1,7 @@
 @extends('home')
 @section('contenido')
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-12">
@@ -32,15 +34,24 @@
                             <h6>Titulo Italiano</h6>
                             <input type="text" class="form-control" name="titulo_it">
                             <h6>Texto</h6>
-                            <textarea name="texto"></textarea>
+                            <textarea name="texto" class="textarea"></textarea>
                             <h6>Texto Ingles</h6>
-                            <textarea name="texto_en"></textarea>
+                            <textarea name="texto_en" class="textarea"></textarea>
                             <h6>Texto Italiano</h6>
-                            <textarea name="texto_it"></textarea>
+                            <textarea name="texto_it" class="textarea"></textarea>
                             <h6>Logo</h6>
                             <input type="file" name="logo">
                             <h6>Imagen</h6>
                             <input type="file" name="img">
+                            <div class="">
+                                <h6>Seleccionar Soluciones</h6>
+                                <select class="js-example-basic-multiple form-control" name="soluciones[]" multiple="multiple">
+                                   @foreach ($soluciones as $solucion)
+                                       <option value="{{$solucion->id}}">{{$solucion->titulo}}</option>
+                                       ...
+                                   @endforeach
+                                </select>
+                            </div>
                             <h6>Archivo</h6>
                             <input type="file" name="arch">
                             <div class="text-center">
@@ -57,7 +68,8 @@
     </div>
     <script>
         $(function(){
-            $('textarea').summernote({
+            $('.js-example-basic-multiple').select2();
+            $('.textarea').summernote({
                  height: 250,
                      fontNames: ['Montserrat-Bold', 'Montserrat-Light', 'Montserrat-Medium', 'Montserrat-Regular', 'Montserrat-SemiBold'],
                      toolbar: [

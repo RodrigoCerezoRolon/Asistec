@@ -10,4 +10,7 @@ class Sector extends Model
 {
     use HasFactory,SectoresMutators;
     protected $guarded=['id'];
+    public function soluciones(){
+        return $this->belongsToMany(Solucion::class,'sectors_solucions');   
+    }
 }
