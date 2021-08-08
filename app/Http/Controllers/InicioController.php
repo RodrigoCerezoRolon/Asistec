@@ -14,6 +14,7 @@ use App\Models\Sliders;
 use App\Models\SubCategoria;
 use App\Models\SubSubCategoria;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 
 class InicioController extends Controller
@@ -102,5 +103,10 @@ class InicioController extends Controller
         $seccionMantenimiento=SeccionInicio::find(3);
         return view('inicio',compact('contactos','iconoSup','sliders','categorias','seccionEmpresa','seccionSolucion','marcas','seccionMantenimiento'));
         
+    }
+    public function cambiarIdioma(Request $request){
+        Session::put('locale', $request->locale);
+
+        return redirect()->back();
     }
 }

@@ -13,35 +13,39 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/','InicioController@vistaInicio')->name('inicio');
-//Filtros select
-Route::get('filtrarPorCategoria/{id}','CategoriasController@filtrarSelectorCategoria');
-Route::get('filtrarPorSubCategoria/{id}','SubCategoriasController@filtrarSelectorSubCategoria');
-//Buscar Solucion
-Route::get('BuscarSolucionCategoria/{id}','SolucionesController@buscarSolucionPorCategoria')->name('solucionPorCat');
-Route::get('BuscarSolucionSubCategoria/{id}','SolucionesController@buscarSolucionPorSubCategoria')->name('solucionPorSub');
-Route::get('BuscarSolucionSub-SubCategoria/{id}','SolucionesController@buscarSolucionPorSubSubCategoria')->name('solucionPorSubSub');
-//Suscripcion
-Route::post('subscribirse','SubcriptoresController@subscribirse');
+Route::middleware([\App\Http\Middleware\CheckLocale::class])->group(function () {
+    
 
-Route::get('empresa','EmpresaController@vistaEmpresa')->name('empresa');
-Route::get('soluciones','SolucionesController@vistaSoluciones')->name('soluciones');
-Route::get('solucion/{id}','SolucionesController@show')->name('solucion');
-Route::get('productos','ProductosController@vistaProductos')->name('productos');
-Route::get('producto/{id}','ProductosController@vistaProducto')->name('producto');
-Route::get('mantenimiento','MantenimientoController@vistaMantenimiento')->name('mantenimiento');
-Route::get('sectores','SectoresController@vistaSectores')->name('sectores');
-Route::get('casos-de-exito','CasosController@vistaCasos')->name('casos');
-Route::get('clientes','ClientesController@vistaClientes')->name('clientes');
-Route::get('presupuesto','ContactoController@vistaPresupuesto')->name('presupuesto');
-Route::get('presupuesto/{id}','ContactoController@vistaPresupuestoProd')->name('presupuesto.prod');
-Route::post('presupuestoProd','ContactoController@presupuestoProd');
-Route::post('presupuesto','ContactoController@presupuesto');
-Route::get('fabricacion-productos-especiales','FabricacionController@vistaFabricacion')->name('fabricacion');
-Route::get('contacto','ContactoController@vistaContacto')->name('contacto');
-Route::post('consulta','ContactoController@enviarConsulta')->name('consulta');
+  //Filtros select
+  Route::get('filtrarPorCategoria/{id}','CategoriasController@filtrarSelectorCategoria');
+  Route::get('filtrarPorSubCategoria/{id}','SubCategoriasController@filtrarSelectorSubCategoria');
+  //Buscar Solucion
+  Route::get('BuscarSolucionCategoria/{id}','SolucionesController@buscarSolucionPorCategoria')->name('solucionPorCat');
+  Route::get('BuscarSolucionSubCategoria/{id}','SolucionesController@buscarSolucionPorSubCategoria')->name('solucionPorSub');
+  Route::get('BuscarSolucionSub-SubCategoria/{id}','SolucionesController@buscarSolucionPorSubSubCategoria')->name('solucionPorSubSub');
+  //Suscripcion
+  Route::post('subscribirse','SubcriptoresController@subscribirse');
+  Route::get('/','InicioController@vistaInicio')->name('inicio');
+  Route::post('cambiarIdioma','InicioController@cambiarIdioma')->name('cambiarIdioma');
+  Route::get('empresa','EmpresaController@vistaEmpresa')->name('empresa');
+  Route::get('soluciones','SolucionesController@vistaSoluciones')->name('soluciones');
+  Route::get('solucion/{id}','SolucionesController@show')->name('solucion');
+  Route::get('productos','ProductosController@vistaProductos')->name('productos');
+  Route::get('producto/{id}','ProductosController@vistaProducto')->name('producto');
+  Route::get('mantenimiento','MantenimientoController@vistaMantenimiento')->name('mantenimiento');
+  Route::get('sectores','SectoresController@vistaSectores')->name('sectores');
+  Route::get('casos-de-exito','CasosController@vistaCasos')->name('casos');
+  Route::get('clientes','ClientesController@vistaClientes')->name('clientes');
+  Route::get('presupuesto','ContactoController@vistaPresupuesto')->name('presupuesto');
+  Route::get('presupuesto/{id}','ContactoController@vistaPresupuestoProd')->name('presupuesto.prod');
+  Route::post('presupuestoProd','ContactoController@presupuestoProd');
+  Route::post('presupuesto','ContactoController@presupuesto');
+  Route::get('fabricacion-productos-especiales','FabricacionController@vistaFabricacion')->name('fabricacion');
+  Route::get('contacto','ContactoController@vistaContacto')->name('contacto');
+  Route::post('consulta','ContactoController@enviarConsulta')->name('consulta');
 
-Route::get('calculadora','ProductosController@vistaCalculadora')->name('calculadora');
+  Route::get('calculadora','ProductosController@vistaCalculadora')->name('calculadora');
+});
 Route::get('adm',function(){
     return redirect('login');
 });

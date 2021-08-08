@@ -11,19 +11,19 @@
 </style>
 <div class="d-flex Servicios_LineaGris align-items-center ps-5">
     <i class="fas fa-home"></i> |
-    Soluciones
+    @lang('nav.soluciones')
 </div>
 <!--Selector de Soluciones-->
 <div class="container-fluid py-5 ps-md-5" style="background-color: #AEDADB33">
     <form id="formFiltrado">
     <div class="row">
         <div class="col-md-12 text-center" style="font-family: 'Roboto-Light';font-size:32px;color:#053E85">
-            Encuentre la solución para todo tipo de proyecto
+           @lang('app.EncuentreSolucion')
             <div class="lineaCeleste mx-auto mb-5"></div>
         </div>
         <div class="col-md-3">
             <select class="form-select rounded-pill SelectorCat" id="SelectorCat" aria-label="Default select example">
-                <option selected disabled>Usted quiere</option>
+                <option selected disabled>@lang('app.UstedQuiere')</option>
                 @if($categorias->isEmpty())
                 <option value="" selected>No hay Categorias Cargadas, cargue para continuar</option>
                 @else 
@@ -45,7 +45,7 @@
         </div>
         <div class="col-md-3">
             <button type="submit" class="btn rounded-pill px-5 d-block Inicio_btnSoluciones ">
-                Buscar
+                @lang('app.BtnBuscar')
             </button>
         </div>
     </div>
@@ -55,14 +55,14 @@
     <div class="row">
         <div class="col-md-6 pt-4 ps-5">
             <div class="Inicio_tituloSolucion">
-                Productos especiales
+                @lang('app.ProductosEspeciales')
             </div>
             <div class="Inicio_textoSolucion mt-3">
-                Fabricamos equipos hidráulicos exclusivos para la necesidad de cada uno de nuestros clientes. Nuestros equipos estan caracterizados por un alto rendimiento y confiabilidad, construidos en chapa de acero. Todos los componentes se encuentran montado sobre la tapa provista de cancamos, que simplifican su desplazamiento.
+                @lang('app.Fabricamos')
             </div>
             <div class="mt-5">
                 <a href="{{route('fabricacion')}}" class="btn rounded-pill Inicio_btnSoluciones">
-                    Ver Más
+                    @lang('app.VerMas')
                 </a>
             </div>
         </div>

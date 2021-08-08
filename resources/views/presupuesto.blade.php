@@ -7,7 +7,7 @@
         <div class="col-md-2 col-4">
             <img id="icono_edit"class="d-block mx-auto"src="{{asset('images/edit.svg')}}">
             <div class="text-center mt-3" style="font-family: 'Roboto-Regular';color:#707070;font-size:17px">
-                DATOS <br> PERSONALES
+                @lang('app.DatosPersonales')
                 
             </div>
             <div class="text-center">
@@ -24,7 +24,7 @@
         <div class="col-md-2 col-4">
             <img id="icono_chat"class="d-block mx-auto "  src="{{asset('images/chat.svg')}}">
             <div class="text-center mt-3" style="font-family: 'Roboto-Regular';color:#707070;font-size:17px">
-                CONSULTA
+                @lang('app.Consulta')
             </div>
             <div class="text-center">
                 <img class="cositoConsulta" src="{{url('/')}}/images/cositogris.png" style="padding-top: 20px;">
@@ -36,32 +36,32 @@
                 @csrf
             <div class="row">
                 <div class="col-12 col-md-6">
-                    <input type="text" name="nombre" id="nombre" placeholder="Nombre (*)" class="form-control" required>
+                    <input type="text" name="nombre" id="nombre" placeholder="@lang('app.Nombre') (*)" class="form-control" required>
                 </div>
                 <div class="col-12 col-md-6">
-                    <input type="email" name="email" id="email" placeholder="Correo electrónico (*)" class="form-control" required="">
+                    <input type="email" name="email" id="email" placeholder="@lang('app.Correo') (*)" class="form-control" required="">
                 </div>
             </div>
             <div class="row mt-3">
                 <div class="col-12 col-md-6">
-                    <input type="text" id="telefono" name="telefono" placeholder="Ingrese Teléfono(*)" class="form-control">
+                    <input type="text" id="telefono" name="telefono" placeholder="@lang('app.Telefono')(*)" class="form-control">
                 </div>
                 <div class="col-12 col-md-6">
-                    <input type="text" id="empresa" name="empresa" placeholder="Empresa" class="form-control">
+                    <input type="text" id="empresa" name="empresa" placeholder="@lang('app.Empresa')" class="form-control">
                 </div>
             </div>
             
             <div class="row mt-5">
                 <div class="col-12 d-flex justify-content-end">
                  
-                    <button onclick="PrimerValidacion()" type="button" class="btn rounded-pill  px-5" style="background-color: transparent;color:white;font-size:14px;font-family:'Roboto-Bold';text-transform:uppercase;border:1px solid #1EBCC1;color:#1EBCC1">Siguiente</button>
+                    <button onclick="PrimerValidacion()" type="button" class="btn rounded-pill  px-5" style="background-color: transparent;color:white;font-size:14px;font-family:'Roboto-Bold';text-transform:uppercase;border:1px solid #1EBCC1;color:#1EBCC1">@lang('app.Siguiente')</button>
                 </div>
             </div>
         </div>
         <div id="segundo" class="mt-5 d-none col-md-8" >
             <div class="row">
                 <div class="col-md-12 col-12">
-                    <textarea name="mensaje" name="mensaje"placeholder="Mensaje" rows="3" class="form-control"></textarea>
+                    <textarea name="mensaje" name="mensaje"placeholder="@lang('app.Mensaje')" rows="3" class="form-control"></textarea>
                 </div>
                 <div class="col-md-6 col-12 mt-2">
                     <div class="input-group mb-3">
@@ -71,9 +71,9 @@
             </div>
             <div class="row mt-5">
                 <div class="col-12 d-flex justify-content-between">
-                    <button onclick="anterior()" type="button" class="btn px-5 btn-outline-light text-uppercase rounded-pill" style="color: #1EBCC1;border:1px solid #1EBCC1;font-family:'Roboto-Bold';font-size:13px">volver</button>
+                    <button onclick="anterior()" type="button" class="btn px-5 btn-outline-light text-uppercase rounded-pill" style="color: #1EBCC1;border:1px solid #1EBCC1;font-family:'Roboto-Bold';font-size:13px">@lang('app.Volver')</button>
                     <button type="submit" class="btn rounded-pill px-md-5" style="background-color: #1EBCC1;color:white;font-size:13px;font-family:'Roboto-Bold';text-transform:uppercase;border:1px solid #1EBCC1">
-                        <span class="spinner-border spinner-border-sm d-none"> </span> <span class="btn-text"> Enviar </span>
+                        <span class="spinner-border spinner-border-sm d-none"> </span> <span class="btn-text"> @lang('app.Enviar') </span>
                        
                    </button>
                    

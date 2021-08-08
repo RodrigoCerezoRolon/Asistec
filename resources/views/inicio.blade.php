@@ -76,12 +76,12 @@
         <form id="formFiltrado">
         <div class="row">
             <div class="col-md-12 text-center" style="font-family: 'Roboto-Light';font-size:32px;color:#053E85">
-                Encuentre la solución para todo tipo de proyecto
+                @lang('app.EncuentreSolucion')
                 <div class="lineaCeleste mx-auto mb-5"></div>
             </div>
             <div class="col-md-3">
                 <select class="form-select rounded-pill SelectorCat" id="SelectorCat" aria-label="Default select example">
-                    <option selected disabled>Usted quiere</option>
+                    <option selected disabled>@lang('app.UstedQuiere')</option>
                     @if($categorias->isEmpty())
                     <option value="" selected>No hay Categorias Cargadas, cargue para continuar</option>
                     @else 
@@ -103,7 +103,7 @@
             </div>
             <div class="col-md-3 mt-3 mt-md-0">
                 <button type="submit" class="btn rounded-pill px-5 d-block Inicio_btnSoluciones ">
-                    Buscar
+                    @lang('app.BtnBuscar')
                 </button>
             </div>
         </div>
@@ -120,7 +120,7 @@
                 </div>
                 <div class="mt-md-5 mb-md-0 mb-3">
                     <a href="{{route('soluciones')}}" class="btn rounded-pill Inicio_btnSoluciones">
-                        Ver Soluciones
+                        @lang('app.VerSoluciones')
                     </a>
                 </div>
             </div>
@@ -139,7 +139,7 @@
                 </div>
                 <div class="mt-md-5 mb-md-0 mb-3">
                     <a href="{{route('mantenimiento')}}" class="btn rounded-pill Inicio_btnSoluciones">
-                        Ver Mas
+                        @lang('app.VerMas')
                     </a>
                 </div>
             </div>
@@ -150,7 +150,7 @@
         <div class="row">
             <div class="col-md-12 my-5">
                 <div class="Servicios-TituloSeccion">
-                    Representadas
+                    @lang('app.Representadas')
                 </div>
                 <div class="lineaCeleste mx-auto"></div>
             </div>
@@ -192,7 +192,7 @@
                             {!!$seccionEmpresa->texto!!}
                         </div>
                         <a class="btn mx-auto rounded-pill mt-4" href="{{route('presupuesto')}}" style="background-color: #1EBCC1;color:white;font-family:'Roboto-Bold';font-size:13px;text-transform:uppercase">
-                            Solicitar Presupuesto
+                           @lang('nav.Solicitud')
                         </a>
                    </div>
                 </div>

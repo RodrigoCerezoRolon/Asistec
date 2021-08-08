@@ -40,12 +40,12 @@
 </style>
 <div class="d-flex Servicios_LineaGris align-items-center ps-5">
     <i class="fas fa-home"></i> |
-    Fabricación de productos especiales
+    @lang('nav.fabricacion de productos especiales')
 </div>
 <div class="container-fluid mb-5 py-5 ps-md-5" style="">
     <div class="row">
         <div class="col-md-12 text-center Servicios-TituloSeccion" >
-            Fabricación de productos especiales
+            @lang('nav.fabricacion de productos especiales')
             <div class="lineaCeleste mx-auto"></div>
         </div>
     </div>

@@ -19,13 +19,13 @@
     </style>
     <div class="d-flex Servicios_LineaGris align-items-center ps-5">
         <i class="fas fa-home"></i> |
-        Sectores
+        @lang('nav.sectores')
     </div>
     <div class="container-fluid ps-5">
         <div class="row">
             <div class="col-md-12 mb-5">
                 <div class="Servicios-TituloSeccion">
-                    Tamaño de su empresa
+                   @lang('app.TamanoEmpresa')
                 </div>
                 <div class="lineaCeleste mx-auto"></div>
             </div>
@@ -56,7 +56,7 @@
             @endforeach
             <div class="col-md-12 mb-5">
                 <div class="Servicios-TituloSeccion">
-                    Sectores
+                    @lang('nav.sectores')
                 </div>
                 <div class="lineaCeleste mx-auto"></div>
             </div>

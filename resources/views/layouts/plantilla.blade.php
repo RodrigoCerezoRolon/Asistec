@@ -68,10 +68,28 @@
                  
                @endforeach
             </div>
-            <div class="d-none d-md-flex align-items-center" style="background-color: #A80F1B">
-                <a class="link-calculadora {{Route::is('presupuesto') ? 'presupuesto_active' : ''}}" href="{{route('presupuesto')}}">
-                   SOLICITUD DE PRESUPUESTO
+            <div class="d-none d-md-flex align-items-center" >
+                <a class="link-calculadora text-uppercase {{Route::is('presupuesto') ? 'presupuesto_active' : ''}}" href="{{route('presupuesto')}}">
+                  @lang('nav.Solicitud')
                 </a>
+                <form method="POST" action="{{route('cambiarIdioma')}}" id="swLang">
+                    @csrf
+                        <div class="d-flex" style="">
+                          <select  style="z-index: 3; background-color:#053E85;border:none;color:white" class=""  name="locale" onchange="swLang()">
+                            <option value="es" @if(\App::getLocale() == 'es') selected @endif>ES</option>
+                            <option value="en" @if(\App::getLocale() == 'en') selected @endif>EN</option>
+                            <option value="it" @if(\App::getLocale() == 'it') selected @endif>IT</option>
+                            
+                          </select>
+                          {{-- <i class="fas fa-caret-down " style="position: relative; left: -10px; top: 10px; z-index: 4;color:white"></i> --}}
+                          </div>
+                      </div>
+                    </form>
+                    <script>
+                        function swLang() {
+                            var x = document.getElementById("swLang").submit();
+                            }
+                    </script>
             </div>
            
            
@@ -128,28 +146,28 @@
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                   <ul class="navbar-nav ms-auto  " style="white-space: nowrap">
                     <li class="nav-item ">
-                        <a class="nav-link {{$empresa_active ?? ''}} " href="{{route('empresa')}}">EMPRESA</a>
+                        <a class="nav-link {{$empresa_active ?? ''}} " href="{{route('empresa')}}">@lang('nav.empresa')</a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link {{$soluciones_active ?? ''}}" href="{{route('soluciones')}}">SOLUCIONES</a>
+                        <a class="nav-link {{$soluciones_active ?? ''}}" href="{{route('soluciones')}}">@lang('nav.soluciones')</a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link {{$fabricacion_active ?? ''}}" href="{{route('fabricacion')}}">FABRICACIÓN de PRODUCTOS ESPECIALES</a>
+                        <a class="nav-link {{$fabricacion_active ?? ''}}" href="{{route('fabricacion')}}">@lang('nav.fabricacion de productos especiales')</a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link {{$mantenimiento_active ?? ''}}" href="{{route('mantenimiento')}}">Mantenimiento</a>
+                        <a class="nav-link {{$mantenimiento_active ?? ''}}" href="{{route('mantenimiento')}}">@lang('nav.mantenimiento')</a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link {{$sectores_active ?? ''}}" href="{{route('sectores')}}">Sectores</a>
+                        <a class="nav-link {{$sectores_active ?? ''}}" href="{{route('sectores')}}">@lang('nav.sectores')</a>
                     </li> 
                     <li class="nav-item ">
-                        <a class="nav-link {{$casos_active ?? ''}}" href="{{route('casos')}}">Casos de éxito</a>
+                        <a class="nav-link {{$casos_active ?? ''}}" href="{{route('casos')}}">@lang('nav.Casos')</a>
                     </li> 
                     <li class="nav-item ">
-                        <a class="nav-link {{$clientes_active ?? ''}}" href="{{route('clientes')}}">Clientes</a>
+                        <a class="nav-link {{$clientes_active ?? ''}}" href="{{route('clientes')}}">@lang('nav.Clientes')</a>
                     </li> 
                     <li class="nav-item ">
-                        <a class="nav-link {{$contacto_active ?? ''}}" href="{{route('contacto')}}">Contacto</a>
+                        <a class="nav-link {{$contacto_active ?? ''}}" href="{{route('contacto')}}">@lang('nav.Contacto')</a>
                     </li> 
                     {{-- <a class="nav-item nav-link" href="{{route('contacto')}}"><i class="fas fa-search"></i> </a> --}}
                   </ul>
@@ -183,20 +201,20 @@
              <div class="row">
                 
                  <div class="col-md-4">
-                     <div class="pie_titulo">Secciones</div>
+                     <div class="pie_titulo">@lang('app.secciones')</div>
                      <div class="row">
                          <div class="col-md-6">
-                             <div class=""><a class="pie_secciones" href="{{route('empresa')}}">Empresa</a></div>
-                             <div class=""><a class="pie_secciones" href="{{route('soluciones')}}">Soluciones</a></div>
-                             <div class=""><a class="pie_secciones" href="{{route('fabricacion')}}">FABRICACIÓN de PRODUCTOS ESPECIALES</a></div>
-                             <div class=""><a class="pie_secciones" href="{{route('mantenimiento')}}">MANTENIMIENTO</a></div>
+                             <div class=""><a class="pie_secciones" href="{{route('empresa')}}">@lang('nav.empresa')</a></div>
+                             <div class=""><a class="pie_secciones" href="{{route('soluciones')}}">@lang('nav.soluciones')</a></div>
+                             <div class=""><a class="pie_secciones" href="{{route('fabricacion')}}">@lang('nav.fabricacion de productos especiales')</a></div>
+                             <div class=""><a class="pie_secciones" href="{{route('mantenimiento')}}">@lang('nav.mantenimiento')</a></div>
 
                          </div>
                          <div class="col-md-6">
-                             <div class=""><a class="pie_secciones" href="{{route('sectores')}}">Sectores</a></div>
-                             <div class=""><a class="pie_secciones" href="{{route('casos')}}">Casos de exito</a></div>
-                             <div class=""><a class="pie_secciones" href="{{route('clientes')}}">Clientes</a></div>
-                             <div class=""><a class="pie_secciones" href="{{route('contacto')}}">Contacto</a></div>
+                             <div class=""><a class="pie_secciones" href="{{route('sectores')}}">@lang('nav.sectores')</a></div>
+                             <div class=""><a class="pie_secciones" href="{{route('casos')}}">@lang('nav.Casos')</a></div>
+                             <div class=""><a class="pie_secciones" href="{{route('clientes')}}">@lang('nav.Clientes')</a></div>
+                             <div class=""><a class="pie_secciones" href="{{route('contacto')}}">@lang('nav.Contacto')</a></div>
 
  
                          </div>
@@ -205,19 +223,19 @@
                    
                  </div>
                  <div class="col-md-3">
-                     <div class="pie_titulo">Suscribite a nuestro newsLetter</div>
+                     <div class="pie_titulo">@lang('app.Suscribite')</div>
                      <form id="formSubscribirse">
                          <div class="input-group flex-nowrap mt-2">
                          
                              @csrf
-                             <input id="correo_news" type="text" name="email" class="form-control" style="border-top-left-radius: 14px;border-bottom-left-radius: 14px" placeholder="Ingresa tu email" aria-label="Username" aria-describedby="addon-wrapping">
+                             <input id="correo_news" type="text" name="email" class="form-control" style="border-top-left-radius: 14px;border-bottom-left-radius: 14px" placeholder="@lang('app.IngresaEmail')" aria-label="Username" aria-describedby="addon-wrapping">
                              <span class="input-group-text btn_suscribirse" id="addon-wrapping" style="background-color: #1EBCC1;border-top-right-radius:20px;border-bottom-right-radius: 20px;border:#30A0DB"><i class="fas fa-paper-plane" style="color: #F9F9F9"></i></span>
                          
                          </div>
                      </form>
                  </div>
                  <div class="col-md-4 ms-md-5">
-                     <div class="pie_titulo">Contactanos</div>
+                     <div class="pie_titulo">@lang('app.Contactanos')</div>
                      <div class="row">
                          @foreach ($contactos as $contacto)
                          @if ($contacto->dato=="direccion")
@@ -282,7 +300,7 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             success: function (response) {
-                swal("Se ha suscripto correctamente","","success");
+                swal("@lang('app.MsgSuscripto')","","success");
                 $('#correo_news').val("");
                 setTimeout(function(){ location.reload(); }, 1500);
             },

@@ -2,12 +2,12 @@
 
 namespace App\Models;
 
-use App\Models\Traits\Mutators\CategoriasMutators;
+use App\Models\Traits\Mutators\SectoresMutators;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Sector extends Model
 {
-    use HasFactory,CategoriasMutators;
+    use HasFactory,SectoresMutators;
     protected $guarded=['id'];
 }

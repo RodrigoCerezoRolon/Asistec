@@ -11,7 +11,7 @@
 </style>
 <div class="d-flex Servicios_LineaGris align-items-center ps-5">
     <i class="fas fa-home"></i> |
-    Contacto
+    @lang('nav.Contacto')
 </div>
 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d26282.899535436318!2d-58.57349776044921!3d-34.56969459999999!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb9df9f388e3f%3A0x3d98509da51521ae!2sASIS-TEC%20Hidraulica%20-%20Neumatica!5e0!3m2!1ses-419!2sar!4v1624234473704!5m2!1ses-419!2sar" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 <style>
@@ -44,7 +44,7 @@
     <div class="row">
         <div class="col-md-12 mb-5">
             <div class="Servicios-TituloSeccion">
-                Contacto
+                @lang('nav.Contacto')
             </div>
             <div class="lineaCeleste mx-auto"></div>
         </div>
@@ -109,7 +109,7 @@
         <div class="col-xl-8 col-lg-8 col-md-8">
             @if (session()->has('success'))
                 <div class="alert alert-success">
-                  Consulta recibida
+                  @lang('app.MsgConsultaRecibida')
                 </div>
             @endif
             @if (session()->has('error'))
@@ -121,23 +121,23 @@
                @csrf
                 <div class="row">
                   <div class="col">
-                    <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre" required>
+                    <input type="text" name="nombre" id="nombre" class="form-control" placeholder="@lang('app.Nombre')" required>
                   </div>
                   <div class="col">
-                   <input type="text" name="empresa" id="empresa" class="form-control" placeholder="Empresa" required>
+                   <input type="text" name="empresa" id="empresa" class="form-control" placeholder="@lang('app.Empresa')" required>
                   </div>
                 </div>
                 <div class="row my-3">
                     <div class="col">
-                      <input type="text" class="form-control" name="correo" id="correo" placeholder="Correo electrónico" required>
+                      <input type="text" class="form-control" name="correo" id="correo" placeholder="@lang('app.Correo')" required>
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" name="telefono" id="telefono" placeholder="Telefono" required>
+                        <input type="text" class="form-control" name="telefono" id="telefono" placeholder="@lang('app.Telefono')" required>
                     </div>
                 </div>
                 <div class="row my-3">
                     <div class="col-6">
-                    <textarea class="form-control" name="mensaje" id="mensaje"placeholder="Mensaje" rows="4" cols="50" required></textarea>
+                    <textarea class="form-control" name="mensaje" id="mensaje"placeholder="@lang('app.Mensaje')" rows="4" cols="50" required></textarea>
                     </div>
                     <div class="col-6">
                         <div class="form-group">
@@ -156,7 +156,7 @@
                     <div class="col-12">
 
                         <button type="submit" class="btn  px-md-5 rounded-pill" style="background-color: #1EBCC1;color:white;text-transform:uppercase;font-family: 'Roboto-Bold';font-size:13px">
-                            <span class="spinner-border spinner-border-sm d-none"> </span> <span class="btn-text"> Enviar </span>
+                            <span class="spinner-border spinner-border-sm d-none"> </span> <span class="btn-text"> @lang('app.Enviar') </span>
                            
                        </button>
                     </div>

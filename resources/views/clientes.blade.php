@@ -11,7 +11,7 @@
 </style>
 <div class="d-flex Servicios_LineaGris align-items-center ps-5">
     <i class="fas fa-home"></i> |
-    Clientes
+    @lang('nav.Clientes')
 </div>
 <!--Clientes-->
 <div class="container-fluid ps-5">

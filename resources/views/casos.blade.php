@@ -23,13 +23,13 @@
 </style>
 <div class="d-flex Servicios_LineaGris align-items-center ps-5">
     <i class="fas fa-home"></i> |
-    Casos de éxito
+    @lang('nav.Casos')
 </div>
 <div class="container-fluid ps-5 py-5">
     <div class="row">
         <div class="col-md-12 mb-5">
             <div class="Servicios-TituloSeccion">
-                Casos de éxito
+                @lang('nav.Casos')
             </div>
             <div class="lineaCeleste mx-auto"></div>
         </div>
@@ -46,7 +46,7 @@
                     {!!$caso->texto!!}
                 </div>
                 <a href="{{asset(Storage::url($caso->archivo))}}" download="" class="btn rounded-pill btn-outline" style="color:#1EBCC1;border:1px solid #1EBCC1;font-family:'Roboto-Bold';font-size:13px;text-transform:uppercase">
-                    Descargar Caso
+                   @lang('app.DescargarCaso')
                 </a>
             </div>  
             <hr>

@@ -1,0 +1,30 @@
+<?php
+
+return [
+   'secciones'=>'Sections',
+   'Suscribite'=>'SUBSCRIBE TO OUR NEWSLETTER',
+   'Contactanos'=>'Contact us',
+   'IngresaEmail'=>'Enter your email',
+   'MsgSuscripto'=>'It has been properly subscribed',
+   'MsgConsultaRecibida'=>'Inquiry received',
+   'EncuentreSolucion'=>'Find the solution for every type of project',
+   'UstedQuiere'=>'You want?',
+   'Representadas'=>'Represented',
+   'VerSoluciones'=>'See Solutions',
+   'VerMas'=>'See More',
+   'BtnBuscar'=>'Search',
+   'ProductosEspeciales'=>'Specialty Products',
+   'Fabricamos'=>'We manufacture exclusive hydraulic equipment for the needs of each of our customers. Our equipment is characterized by high performance and reliability, built in steel plate. All the components are mounted on the cover provided with flaps, which simplify its displacement.',
+   'TamanoEmpresa'=>'Size of your Company',
+   'DescargarCaso'=>'Download Case',
+   'Nombre'=>'Name',
+   'Empresa'=>'Company',
+   'Correo'=>'Email',
+   'Telefono'=>'Phone',
+   'Mensaje'=>'Message',
+   'Enviar'=>'Send',
+   'Volver'=>'Go Back',
+   'Siguiente'=>'Next',
+   'DatosPersonales'=>'PERSONAL DATA',
+   'Consulta'=>'CONSULTATION'
+];
